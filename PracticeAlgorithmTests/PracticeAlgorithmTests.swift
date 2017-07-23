@@ -13,12 +13,17 @@ class PracticeAlgorithmTests: XCTestCase {
     var mergeSortedArraysAlgorithm: MergeSortedArrays!
     var quickSortAlgorithm: QuickSort!
     var heapSortAlgorithm: HeapSort!
+    var binarySearchAlgorithm: BinarySearch!
+    var mergeSortAlgorithm: MergeSort!
     
     override func setUp() {
         super.setUp()
+        
         quickSortAlgorithm = QuickSort()
         heapSortAlgorithm = HeapSort()
         mergeSortedArraysAlgorithm = MergeSortedArrays()
+        binarySearchAlgorithm = BinarySearch()
+        mergeSortAlgorithm = MergeSort()
     }
     
     override func tearDown() {
@@ -65,6 +70,30 @@ class PracticeAlgorithmTests: XCTestCase {
         self.measure {
             self.heapSortAlgorithm.heapSort(&myArray)
         }
+    }
+    
+    func testBinarySarch() {
+//        var myArray: [Int] = [];
+//        
+//        for _ in 1...10000{
+//            let randomNum:UInt32 = arc4random_uniform(10000)
+//            myArray.append(Int(randomNum))
+//        }
+//        
+//        self.quickSortAlgorithm.quickSort(&myArray, 0, myArray.count - 1)
+//        
+//        print(myArray)
+        
+        let foundIndex = self.binarySearchAlgorithm.binarySearch([-10, 20, 33, 45, 89, 202, 456], 456)
+        
+        print("****** found index: \(foundIndex)")
+    }
+    
+    func testMergeSort() {
+        var array: [Int] = [38, 27, 45, 43, 3, -5, 9, 82, 10]
+        let sortedArray = mergeSortAlgorithm.mergeSort(&array)
+        
+        print("****** sorted array: \(sortedArray)")
     }
     
 }

@@ -16,6 +16,8 @@
 		D16789081F21BCCD002EA2BF /* PracticeAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16789071F21BCCD002EA2BF /* PracticeAlgorithmTests.swift */; };
 		D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */; };
 		D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16789111F21D7DD002EA2BF /* HeapSort.swift */; };
+		D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C543E1F24869F00100414 /* BinarySearch.swift */; };
+		D19C54411F248C8F00100414 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C54401F248C8F00100414 /* MergeSort.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		D16789091F21BCCD002EA2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeKSortedArrays.swift; sourceTree = "<group>"; };
 		D16789111F21D7DD002EA2BF /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
+		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
+		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +98,9 @@
 				D16788FF1F21BC74002EA2BF /* Swift-Protocol.playground */,
 				D16788FD1F21BC74002EA2BF /* QuickSort.swift */,
 				D16789111F21D7DD002EA2BF /* HeapSort.swift */,
+				D19C54401F248C8F00100414 /* MergeSort.swift */,
 				D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */,
+				D19C543E1F24869F00100414 /* BinarySearch.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -214,7 +220,9 @@
 			files = (
 				D16788ED1F21BB5A002EA2BF /* ViewController.swift in Sources */,
 				D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */,
+				D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */,
 				D16789001F21BC74002EA2BF /* QuickSort.swift in Sources */,
+				D19C54411F248C8F00100414 /* MergeSort.swift in Sources */,
 				D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */,
 				D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */,
 			);
