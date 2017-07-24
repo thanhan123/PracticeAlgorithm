@@ -15,6 +15,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var heapSortAlgorithm: HeapSort!
     var binarySearchAlgorithm: BinarySearch!
     var mergeSortAlgorithm: MergeSort!
+    var getKSmallestElement: GetKSmallestElement!
     
     override func setUp() {
         super.setUp()
@@ -24,6 +25,7 @@ class PracticeAlgorithmTests: XCTestCase {
         mergeSortedArraysAlgorithm = MergeSortedArrays()
         binarySearchAlgorithm = BinarySearch()
         mergeSortAlgorithm = MergeSort()
+        getKSmallestElement = GetKSmallestElement()
     }
     
     override func tearDown() {
@@ -94,6 +96,14 @@ class PracticeAlgorithmTests: XCTestCase {
         let sortedArray = mergeSortAlgorithm.mergeSort(&array)
         
         print("****** sorted array: \(sortedArray)")
+    }
+    
+    func testFindKSmallestElement() {
+        var array: [Int] = [12, 3, 5, 7, 19]
+        let k = 2
+        getKSmallestElement.getKSmallestElement(&array, k)
+        
+        print("****** \(k)'th smallest element: \(array[array.count - k])")
     }
     
 }

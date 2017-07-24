@@ -41,4 +41,24 @@ class HeapSort {
             heapifyMax(&array, arrayCount, maxIndex)
         }
     }
+    
+    func heapifyMin(_ array: inout [Int], _ arrayCount: Int, _ topIndex: Int) {
+        var maxIndex = topIndex
+        
+        let left = 2*topIndex+1
+        let right = 2*topIndex+2
+        
+        if left < arrayCount && array[left] < array[maxIndex] {
+            maxIndex = left
+        }
+        
+        if right < arrayCount && array[right] < array[maxIndex] {
+            maxIndex = right
+        }
+        
+        if maxIndex != topIndex {
+            swap(&array[topIndex], &array[maxIndex])
+            heapifyMin(&array, arrayCount, maxIndex)
+        }
+    }
 }

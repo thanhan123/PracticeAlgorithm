@@ -18,6 +18,7 @@
 		D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16789111F21D7DD002EA2BF /* HeapSort.swift */; };
 		D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C543E1F24869F00100414 /* BinarySearch.swift */; };
 		D19C54411F248C8F00100414 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C54401F248C8F00100414 /* MergeSort.swift */; };
+		D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D16789111F21D7DD002EA2BF /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
 		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				D19C54401F248C8F00100414 /* MergeSort.swift */,
 				D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */,
 				D19C543E1F24869F00100414 /* BinarySearch.swift */,
+				D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -224,6 +227,7 @@
 				D16789001F21BC74002EA2BF /* QuickSort.swift in Sources */,
 				D19C54411F248C8F00100414 /* MergeSort.swift in Sources */,
 				D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */,
+				D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */,
 				D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
