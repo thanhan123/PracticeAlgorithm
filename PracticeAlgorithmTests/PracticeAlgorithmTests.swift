@@ -16,6 +16,8 @@ class PracticeAlgorithmTests: XCTestCase {
     var binarySearchAlgorithm: BinarySearch!
     var mergeSortAlgorithm: MergeSort!
     var getKSmallestElement: GetKSmallestElement!
+    var kmpAlgorithm: KMPSearchSubStringAlgorithm!
+    var rabinKarpAlgorithm: RabinKarpAlgorithm!
     
     override func setUp() {
         super.setUp()
@@ -26,6 +28,8 @@ class PracticeAlgorithmTests: XCTestCase {
         binarySearchAlgorithm = BinarySearch()
         mergeSortAlgorithm = MergeSort()
         getKSmallestElement = GetKSmallestElement()
+        kmpAlgorithm = KMPSearchSubStringAlgorithm()
+        rabinKarpAlgorithm = RabinKarpAlgorithm()
     }
     
     override func tearDown() {
@@ -104,6 +108,18 @@ class PracticeAlgorithmTests: XCTestCase {
         getKSmallestElement.getKSmallestElement(&array, k)
         
         print("****** \(k)'th smallest element: \(array[array.count - k])")
+    }
+    
+    func testKMPAlgorithm() {
+        let text = "ABABDABACDABABCABAB"
+        let pat = "ABABCABAB"
+        print("****** \(kmpAlgorithm.searchPattern(pat, inText: text))")
+    }
+    
+    func testRabinKarp() {
+        let text = "GEEKS FOR GEEKS"
+        let pat = "GEEK"
+        print("****** \(rabinKarpAlgorithm.searchPattern(pat, inText: text, withPrime: 101))")
     }
     
 }
