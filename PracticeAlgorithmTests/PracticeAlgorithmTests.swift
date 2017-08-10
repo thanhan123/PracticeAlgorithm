@@ -18,6 +18,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var getKSmallestElement: GetKSmallestElement!
     var kmpAlgorithm: KMPSearchSubStringAlgorithm!
     var rabinKarpAlgorithm: RabinKarpAlgorithm!
+    var zAlgorithm: ZAlgorithm!
     
     override func setUp() {
         super.setUp()
@@ -30,6 +31,7 @@ class PracticeAlgorithmTests: XCTestCase {
         getKSmallestElement = GetKSmallestElement()
         kmpAlgorithm = KMPSearchSubStringAlgorithm()
         rabinKarpAlgorithm = RabinKarpAlgorithm()
+        zAlgorithm = ZAlgorithm()
     }
     
     override func tearDown() {
@@ -120,6 +122,12 @@ class PracticeAlgorithmTests: XCTestCase {
         let text = "GEEKS FOR GEEKS"
         let pat = "GEEK"
         print("****** \(rabinKarpAlgorithm.searchPattern(pat, inText: text, withPrime: 101))")
+    }
+    
+    func testZAlgorithm() {
+        let text = "GEEKS FOR GEEKS"
+        let pat = "GEEK"
+        print("****** \(zAlgorithm.searchPattern(pat: pat, text: text))")
     }
     
 }

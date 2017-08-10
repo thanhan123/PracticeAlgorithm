@@ -21,6 +21,7 @@
 		D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C543E1F24869F00100414 /* BinarySearch.swift */; };
 		D19C54411F248C8F00100414 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C54401F248C8F00100414 /* MergeSort.swift */; };
 		D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */; };
+		D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
+		D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */,
 				D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */,
 				D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */,
+				D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -230,6 +233,7 @@
 				D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */,
 				D16788ED1F21BB5A002EA2BF /* ViewController.swift in Sources */,
 				D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */,
+				D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */,
 				D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */,
 				D16789001F21BC74002EA2BF /* QuickSort.swift in Sources */,
 				D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */,
