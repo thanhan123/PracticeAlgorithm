@@ -19,6 +19,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var kmpAlgorithm: KMPSearchSubStringAlgorithm!
     var rabinKarpAlgorithm: RabinKarpAlgorithm!
     var zAlgorithm: ZAlgorithm!
+    var trie: Trie!
     
     override func setUp() {
         super.setUp()
@@ -32,6 +33,7 @@ class PracticeAlgorithmTests: XCTestCase {
         kmpAlgorithm = KMPSearchSubStringAlgorithm()
         rabinKarpAlgorithm = RabinKarpAlgorithm()
         zAlgorithm = ZAlgorithm()
+        trie = Trie()
     }
     
     override func tearDown() {
@@ -128,6 +130,19 @@ class PracticeAlgorithmTests: XCTestCase {
         let text = "GEEKS FOR GEEKS"
         let pat = "GEEK"
         print("****** \(zAlgorithm.searchPattern(pat: pat, text: text))")
+    }
+    
+    func testTrie() {
+        trie.insert(word: "abc")
+        trie.insert(word: "abdef")
+        trie.insert(word: "opqrs")
+        
+        XCTAssertTrue(trie.search(word: "abc") == true, "found abc")
+        XCTAssertTrue(trie.search(word: "opqrs") == true, "found opqrs")
+        XCTAssertTrue(trie.search(word: "some string") == false, "not found some string")
+        XCTAssertTrue(trie.search(word: "opqrs") == true, "found opqrs")
+        trie.delete(word: "abc")
+        XCTAssertTrue(trie.search(word: "abc") == false, "not found abc")
     }
     
 }
