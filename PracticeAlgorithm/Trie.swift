@@ -122,7 +122,7 @@ class Trie {
         
         if shouldDeleteCurrent == true {
             current.map.removeValue(forKey: "\(char)")
-            return current.map.count == 0
+            return current.map.count == 0 && !current.endOfWord
         }
         
         return false

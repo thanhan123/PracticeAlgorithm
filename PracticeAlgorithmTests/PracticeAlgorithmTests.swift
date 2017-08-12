@@ -134,15 +134,16 @@ class PracticeAlgorithmTests: XCTestCase {
     
     func testTrie() {
         trie.insert(word: "abc")
-        trie.insert(word: "abdef")
+        trie.insert(word: "abcdef")
         trie.insert(word: "opqrs")
         
         XCTAssertTrue(trie.search(word: "abc") == true, "found abc")
-        XCTAssertTrue(trie.search(word: "opqrs") == true, "found opqrs")
+        XCTAssertTrue(trie.search(word: "abcdef") == true, "found abcdef")
         XCTAssertTrue(trie.search(word: "some string") == false, "not found some string")
         XCTAssertTrue(trie.search(word: "opqrs") == true, "found opqrs")
-        trie.delete(word: "abc")
-        XCTAssertTrue(trie.search(word: "abc") == false, "not found abc")
+        trie.delete(word: "abcdef")
+        XCTAssertTrue(trie.search(word: "abcdef") == false, "not found abcdef")
+        XCTAssertTrue(trie.search(word: "abc") == true, "found abc")
     }
     
 }
