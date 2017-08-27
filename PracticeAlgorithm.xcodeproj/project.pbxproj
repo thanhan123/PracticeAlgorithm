@@ -10,6 +10,7 @@
 		D12A3B3E1F3EBBA300A60B92 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B3D1F3EBBA300A60B92 /* Trie.swift */; };
 		D12A3B441F3EE6A900A60B92 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B431F3EE6A900A60B92 /* Extension.swift */; };
 		D12A3B451F3EE6B200A60B92 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B431F3EE6A900A60B92 /* Extension.swift */; };
+		D12A3B471F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */; };
 		D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */; };
 		D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */; };
 		D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16788EA1F21BB5A002EA2BF /* AppDelegate.swift */; };
@@ -24,6 +25,8 @@
 		D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C543E1F24869F00100414 /* BinarySearch.swift */; };
 		D19C54411F248C8F00100414 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C54401F248C8F00100414 /* MergeSort.swift */; };
 		D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */; };
+		D1B62BEC1F5275AE00309696 /* CountingSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B62BEB1F5275AE00309696 /* CountingSort.swift */; };
+		D1B62BF01F527DEB00309696 /* ManacherAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */; };
 		D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,7 @@
 /* Begin PBXFileReference section */
 		D12A3B3D1F3EBBA300A60B92 /* Trie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		D12A3B431F3EE6A900A60B92 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AhoCorasickAlgorithm.swift; sourceTree = "<group>"; };
 		D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPSearchSubStringAlgorithm.swift; sourceTree = "<group>"; };
 		D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RabinKarpAlgorithm.swift; sourceTree = "<group>"; };
 		D16788E71F21BB5A002EA2BF /* PracticeAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,8 @@
 		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
+		D1B62BEB1F5275AE00309696 /* CountingSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingSort.swift; sourceTree = "<group>"; };
+		D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManacherAlgorithm.swift; sourceTree = "<group>"; };
 		D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,8 +133,11 @@
 				D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */,
 				D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */,
 				D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */,
-				D16788F61F21BB5A002EA2BF /* Info.plist */,
 				D12A3B3D1F3EBBA300A60B92 /* Trie.swift */,
+				D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */,
+				D1B62BEB1F5275AE00309696 /* CountingSort.swift */,
+				D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */,
+				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
 			sourceTree = "<group>";
@@ -250,9 +259,12 @@
 				D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */,
 				D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */,
 				D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */,
+				D12A3B471F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift in Sources */,
 				D16789001F21BC74002EA2BF /* QuickSort.swift in Sources */,
 				D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */,
+				D1B62BF01F527DEB00309696 /* ManacherAlgorithm.swift in Sources */,
 				D19C54411F248C8F00100414 /* MergeSort.swift in Sources */,
+				D1B62BEC1F5275AE00309696 /* CountingSort.swift in Sources */,
 				D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */,
 				D12A3B441F3EE6A900A60B92 /* Extension.swift in Sources */,
 				D12A3B3E1F3EBBA300A60B92 /* Trie.swift in Sources */,

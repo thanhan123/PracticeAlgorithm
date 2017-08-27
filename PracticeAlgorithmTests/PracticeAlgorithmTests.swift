@@ -20,6 +20,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var rabinKarpAlgorithm: RabinKarpAlgorithm!
     var zAlgorithm: ZAlgorithm!
     var trie: Trie!
+    var countingSort: CountingSort!
     
     override func setUp() {
         super.setUp()
@@ -34,6 +35,7 @@ class PracticeAlgorithmTests: XCTestCase {
         rabinKarpAlgorithm = RabinKarpAlgorithm()
         zAlgorithm = ZAlgorithm()
         trie = Trie()
+        countingSort = CountingSort()
     }
     
     override func tearDown() {
@@ -146,4 +148,8 @@ class PracticeAlgorithmTests: XCTestCase {
         XCTAssertTrue(trie.search(word: "abc") == true, "found abc")
     }
     
+    func testCountingSort() {
+        let sortedArray = countingSort.countingSort(array: [1, 4, 1, 2, 7, 5, 2, 0 , 8, 9], maxVal: 9, minVal: 0)
+        print("***** \(sortedArray)")
+    }
 }
