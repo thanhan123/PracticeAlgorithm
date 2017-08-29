@@ -14,7 +14,7 @@ class HeapSort {
             heapifyMax(&array, array.count, i)
         }
         
-        for i in (0...array.count - 1).reversed() {
+        for i in (0..<array.count).reversed() {
             if i != 0 {
                 swap(&array[i], &array[0]) // bring max element to the tail of the array
             }

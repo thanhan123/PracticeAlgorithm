@@ -110,7 +110,7 @@ class PracticeAlgorithmTests: XCTestCase {
     
     func testFindKSmallestElement() {
         var array: [Int] = [12, 3, 5, 7, 19]
-        let k = 2
+        let k = 4
         getKSmallestElement.getKSmallestElement(&array, k)
         
         print("****** \(k)'th smallest element: \(array[array.count - k])")
