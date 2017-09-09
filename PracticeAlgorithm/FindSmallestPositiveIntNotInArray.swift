@@ -27,7 +27,9 @@ class FindSmallestPositiveIntNotInArray {
         for i in 0..<array.count {
             if array[i] <= 0 {
                 changedPosition = changedPosition + 1
-                swap(&array[changedPosition], &array[i])
+                if changedPosition != i {
+                    swap(&array[changedPosition], &array[i])
+                }
             }
         }
         

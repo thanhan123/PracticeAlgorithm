@@ -164,7 +164,7 @@ class PracticeAlgorithmTests: XCTestCase {
     }
     
     func testFindSmallestPositiveIntNotInArray() {
-        var array = [2, 3, -7, 6, 8, 1, -10, 15]
+        var array = [-1, -3] //[2, 3, -7, 6, 8, 1, -10, 15]
         print("***** smallestEleNotInArray: \(smallestPositiveNotInArray.findSmallestPositiveIntNotInArray(in: &array))")
     }
 }
