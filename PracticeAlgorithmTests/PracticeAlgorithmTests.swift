@@ -21,6 +21,8 @@ class PracticeAlgorithmTests: XCTestCase {
     var zAlgorithm: ZAlgorithm!
     var trie: Trie!
     var countingSort: CountingSort!
+    var findDuplicateElementInArray: FindDuplicateElementInArray!
+    var smallestPositiveNotInArray: FindSmallestPositiveIntNotInArray!
     
     override func setUp() {
         super.setUp()
@@ -36,6 +38,8 @@ class PracticeAlgorithmTests: XCTestCase {
         zAlgorithm = ZAlgorithm()
         trie = Trie()
         countingSort = CountingSort()
+        findDuplicateElementInArray = FindDuplicateElementInArray()
+        smallestPositiveNotInArray = FindSmallestPositiveIntNotInArray()
     }
     
     override func tearDown() {
@@ -151,5 +155,16 @@ class PracticeAlgorithmTests: XCTestCase {
     func testCountingSort() {
         let sortedArray = countingSort.countingSort(array: [1, 4, 1, 2, 7, 5, 2, 0 , 8, 9], maxVal: 9, minVal: 0)
         print("***** \(sortedArray)")
+    }
+    
+    func testFindDuplicateElementInArray() {
+        var array = [1, 2, 3, 1, 3, 6, 6]
+        let duplicateEleArray = findDuplicateElementInArray.findDuplicateElement(in: &array)
+        print("***** duplicateEleArray: \(duplicateEleArray)")
+    }
+    
+    func testFindSmallestPositiveIntNotInArray() {
+        var array = [2, 3, -7, 6, 8, 1, -10, 15]
+        print("***** smallestEleNotInArray: \(smallestPositiveNotInArray.findSmallestPositiveIntNotInArray(in: &array))")
     }
 }

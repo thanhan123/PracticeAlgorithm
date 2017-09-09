@@ -27,6 +27,8 @@
 		D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */; };
 		D1B62BEC1F5275AE00309696 /* CountingSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B62BEB1F5275AE00309696 /* CountingSort.swift */; };
 		D1B62BF01F527DEB00309696 /* ManacherAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */; };
+		D1C4B8121F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */; };
+		D1C4B8161F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */; };
 		D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
 		D1B62BEB1F5275AE00309696 /* CountingSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingSort.swift; sourceTree = "<group>"; };
 		D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManacherAlgorithm.swift; sourceTree = "<group>"; };
+		D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDuplicateElementInArray.swift; sourceTree = "<group>"; };
+		D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindSmallestPositiveIntNotInArray.swift; sourceTree = "<group>"; };
 		D1D24DB81F3CAE7E0029F1E3 /* ZAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlgorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +141,8 @@
 				D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */,
 				D1B62BEB1F5275AE00309696 /* CountingSort.swift */,
 				D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */,
+				D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */,
+				D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */,
+				D1C4B8161F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift in Sources */,
 				D16788ED1F21BB5A002EA2BF /* ViewController.swift in Sources */,
 				D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */,
 				D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */,
@@ -264,6 +271,7 @@
 				D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */,
 				D1B62BF01F527DEB00309696 /* ManacherAlgorithm.swift in Sources */,
 				D19C54411F248C8F00100414 /* MergeSort.swift in Sources */,
+				D1C4B8121F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift in Sources */,
 				D1B62BEC1F5275AE00309696 /* CountingSort.swift in Sources */,
 				D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */,
 				D12A3B441F3EE6A900A60B92 /* Extension.swift in Sources */,
