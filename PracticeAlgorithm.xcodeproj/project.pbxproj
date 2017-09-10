@@ -11,6 +11,7 @@
 		D12A3B441F3EE6A900A60B92 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B431F3EE6A900A60B92 /* Extension.swift */; };
 		D12A3B451F3EE6B200A60B92 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B431F3EE6A900A60B92 /* Extension.swift */; };
 		D12A3B471F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */; };
+		D13101E01F64DA060045C01A /* CodilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13101DF1F64DA060045C01A /* CodilityTest.swift */; };
 		D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */; };
 		D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */; };
 		D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16788EA1F21BB5A002EA2BF /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		D12A3B3D1F3EBBA300A60B92 /* Trie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		D12A3B431F3EE6A900A60B92 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D12A3B461F3EEF2000A60B92 /* AhoCorasickAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AhoCorasickAlgorithm.swift; sourceTree = "<group>"; };
+		D13101DF1F64DA060045C01A /* CodilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodilityTest.swift; sourceTree = "<group>"; };
 		D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPSearchSubStringAlgorithm.swift; sourceTree = "<group>"; };
 		D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RabinKarpAlgorithm.swift; sourceTree = "<group>"; };
 		D16788E71F21BB5A002EA2BF /* PracticeAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */,
 				D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */,
 				D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */,
+				D13101DF1F64DA060045C01A /* CodilityTest.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -278,6 +281,7 @@
 				D12A3B3E1F3EBBA300A60B92 /* Trie.swift in Sources */,
 				D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */,
 				D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */,
+				D13101E01F64DA060045C01A /* CodilityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

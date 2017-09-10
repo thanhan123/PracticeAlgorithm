@@ -23,6 +23,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var countingSort: CountingSort!
     var findDuplicateElementInArray: FindDuplicateElementInArray!
     var smallestPositiveNotInArray: FindSmallestPositiveIntNotInArray!
+    var codilityTest: CodilityTest!
     
     override func setUp() {
         super.setUp()
@@ -40,6 +41,7 @@ class PracticeAlgorithmTests: XCTestCase {
         countingSort = CountingSort()
         findDuplicateElementInArray = FindDuplicateElementInArray()
         smallestPositiveNotInArray = FindSmallestPositiveIntNotInArray()
+        codilityTest = CodilityTest()
     }
     
     override func tearDown() {
@@ -166,5 +168,10 @@ class PracticeAlgorithmTests: XCTestCase {
     func testFindSmallestPositiveIntNotInArray() {
         var array = [-1, -3] //[2, 3, -7, 6, 8, 1, -10, 15]
         print("***** smallestEleNotInArray: \(smallestPositiveNotInArray.findSmallestPositiveIntNotInArray(in: &array))")
+    }
+    
+    func testCodility() {
+         print("***** LongestSlice: \(codilityTest.getLongestSlice(array: [5, 4, 4, 3, 12]))")
+         print("***** MaximumAdjacentDistance: \(codilityTest.getMaximumAdjacentDistance(array: [0, 3, 3, 7, 5, 3, 1, 11, 3]))")
     }
 }
