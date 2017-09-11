@@ -179,6 +179,8 @@ class PracticeAlgorithmTests: XCTestCase {
     
     func testManacherAlgorithm() {
         let result = manacher.longestPalindromicSubstring(string: "abaxabaxabybaxabyb")
-        XCTAssert(result == "baxabybaxab", "finish manacher algorithm implementation")
+        XCTAssert(result == "baxabybaxab")
+        let result2 = manacher.longestPalindromicSubstring(string: "abaab")
+        XCTAssert(result2 == "baab")
     }
 }

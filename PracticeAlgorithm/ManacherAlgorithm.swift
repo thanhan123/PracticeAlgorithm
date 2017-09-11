@@ -45,13 +45,16 @@ struct ManacherAlgorithm {
         }
                 
         var result = ""
-        let start = string.index(string.startIndex, offsetBy: position - value / 2)
-        let end = string.index(string.startIndex, offsetBy: position + value / 2 + 1)
-        let range = start..<end
         if string.characters.count % 2 == 0 {
+            let start = string.index(string.startIndex, offsetBy: position - value / 2)
+            let end = string.index(string.startIndex, offsetBy: position + value / 2 + 1)
+            let range = start..<end
             result = string.substring(with: range)
             
         } else {
+            let start = oddString.index(oddString.startIndex, offsetBy: position - value / 2)
+            let end = oddString.index(oddString.startIndex, offsetBy: position + value / 2 + 1)
+            let range = start..<end
             result = oddString.substring(with: range)
             result = result.replacingOccurrences(of: "$", with: "")
         }
@@ -70,8 +73,9 @@ struct ManacherAlgorithm {
                 
             } else {
                 let palindromeIndexOfI = currCenter.position - (i - currCenter.position)
-                if palindromeIndexOfI - result[palindromeIndexOfI] / 2  == currCenter.position - currCenter.value / 2 && result[palindromeIndexOfI] == currCenter.value / 2 { // case 3: this index "i" is new center
-                    let newCenter = palindromicSubString(of: string, position: i, firstRange: currCenter.value / 2)
+                if palindromeIndexOfI - result[palindromeIndexOfI] / 2 == currCenter.position - currCenter.value / 2 &&
+                    result[palindromeIndexOfI] == currCenter.value / 2 { // case 3: this index "i" is new center
+                    let newCenter = palindromicSubString(of: string, position: i, firstRange: result[palindromeIndexOfI] / 2)
                     currCenter = newCenter
                     result[i] = currCenter.value
                     
