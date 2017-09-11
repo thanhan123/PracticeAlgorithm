@@ -66,8 +66,8 @@ struct ManacherAlgorithm {
         var result = [Int](repeating: 1, count: string.characters.count)
         var currCenter: (position: Int, value: Int) = (0, 1)
         for i in 1..<string.characters.count {
-            if i > currCenter.position + currCenter.value / 2{
-                let newCenter = palindromicSubString(of: string, position: i, firstRange: 1)
+            if i > currCenter.position + currCenter.value / 2 {
+                let newCenter = palindromicSubString(of: string, position: i, initialRange: 1)
                 currCenter = newCenter
                 result[i] = currCenter.value
                 
@@ -75,15 +75,15 @@ struct ManacherAlgorithm {
                 let palindromeIndexOfI = currCenter.position - (i - currCenter.position)
                 if palindromeIndexOfI - result[palindromeIndexOfI] / 2 == currCenter.position - currCenter.value / 2 &&
                     result[palindromeIndexOfI] == currCenter.value / 2 { // case 3: this index "i" is new center
-                    let newCenter = palindromicSubString(of: string, position: i, firstRange: result[palindromeIndexOfI] / 2)
+                    let newCenter = palindromicSubString(of: string, position: i, initialRange: result[palindromeIndexOfI] / 2)
                     currCenter = newCenter
                     result[i] = currCenter.value
                     
                 } else if palindromeIndexOfI - result[palindromeIndexOfI] / 2  < currCenter.position - currCenter.value / 2 { // case 4
-                    let palindromeNumberForCurrentIndex = palindromicSubString(of: string, position: i, firstRange: 1)
+                    let palindromeNumberForCurrentIndex = palindromicSubString(of: string, position: i, initialRange: 1)
                     result[i] = palindromeNumberForCurrentIndex.value
                     
-                } else {
+                } else { // case 1
                     result[i] = result[palindromeIndexOfI]
                 }
             }
@@ -96,8 +96,8 @@ struct ManacherAlgorithm {
         return result
     }
     
-    func palindromicSubString(of string: String, position: Int, firstRange: Int) -> (position: Int, value: Int) {
-        var left = position - firstRange, right = position + firstRange
+    func palindromicSubString(of string: String, position: Int, initialRange: Int) -> (position: Int, value: Int) {
+        var left = position - initialRange, right = position + initialRange
         while left >= 0 && right < string.characters.count {
             if string[left] == string[right] {
                 left = left - 1

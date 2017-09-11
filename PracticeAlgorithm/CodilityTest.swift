@@ -85,4 +85,29 @@ class CodilityTest {
         return max;
     }
     
+    func countNonDivisor(_ A: [Int]) -> [Int] {
+        var countArray = [Int](repeating: 0, count: A.count * 2 + 1)
+        for a in A {
+            countArray[a] = countArray[a] + 1
+        }
+        
+        var divisors = [Int](repeating: 0, count: A.count)
+        
+        for i in 0..<A.count {
+            var numberOfDivisor = 0
+            let a = A[i], target = Int(sqrt(Double(a)))
+            for divisor in 1...target{
+                if a % divisor == 0 {
+                    numberOfDivisor = numberOfDivisor + countArray[divisor]
+                    if a / divisor != divisor {
+                        numberOfDivisor = numberOfDivisor + countArray[a / divisor]
+                    }
+                }
+            }
+            divisors[i] = A.count - numberOfDivisor
+        }
+        
+        return divisors
+    }
+    
 }

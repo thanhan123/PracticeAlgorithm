@@ -183,4 +183,9 @@ class PracticeAlgorithmTests: XCTestCase {
         let result2 = manacher.longestPalindromicSubstring(string: "abaab")
         XCTAssert(result2 == "baab")
     }
+    
+    func testCountNonDivisor() {
+        let result = codilityTest.countNonDivisor([3, 1, 2, 3, 6])
+        print("***** CountNonDivisor: \(result)")
+    }
 }
