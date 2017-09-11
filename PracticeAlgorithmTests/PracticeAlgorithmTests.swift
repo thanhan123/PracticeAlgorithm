@@ -24,6 +24,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var findDuplicateElementInArray: FindDuplicateElementInArray!
     var smallestPositiveNotInArray: FindSmallestPositiveIntNotInArray!
     var codilityTest: CodilityTest!
+    var manacher: ManacherAlgorithm!
     
     override func setUp() {
         super.setUp()
@@ -42,6 +43,7 @@ class PracticeAlgorithmTests: XCTestCase {
         findDuplicateElementInArray = FindDuplicateElementInArray()
         smallestPositiveNotInArray = FindSmallestPositiveIntNotInArray()
         codilityTest = CodilityTest()
+        manacher = ManacherAlgorithm()
     }
     
     override func tearDown() {
@@ -173,5 +175,10 @@ class PracticeAlgorithmTests: XCTestCase {
     func testCodility() {
          print("***** LongestSlice: \(codilityTest.getLongestSlice(array: [5, 4, 4, 3, 12]))")
          print("***** MaximumAdjacentDistance: \(codilityTest.getMaximumAdjacentDistance(array: [0, 3, 3, 7, 5, 3, 1, 11, 3]))")
+    }
+    
+    func testManacherAlgorithm() {
+        let result = manacher.longestPalindromicSubstring(string: "abaxabaxabybaxabyb")
+        XCTAssert(result == "baxabybaxab", "finish manacher algorithm implementation")
     }
 }
