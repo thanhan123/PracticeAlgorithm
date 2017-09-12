@@ -110,4 +110,74 @@ class CodilityTest {
         return divisors
     }
     
+    func solutionSieveEratosthenes(_ N: Int) -> [Int]{
+        var primeNumberIndex = [Bool](repeating: true, count: N + 1)
+        primeNumberIndex[0] = false
+        primeNumberIndex[1] = false
+        
+        var p = 2
+        while p*p <= N {
+            if primeNumberIndex[p] == true {
+                var i = p*p
+                while i <= N {
+                    primeNumberIndex[i] = false
+                    i = i + p
+                }
+            }
+            
+            p = p + 1
+        }
+        
+        var result = [Int]()
+        for i in 2..<primeNumberIndex.count {
+            if primeNumberIndex[i] == true {
+                result.append(i)
+            }
+        }
+        
+        return result
+    }
+    
+    func minAbsSumOfTwo(_ A: inout [Int]) -> Int {
+        A.sort { a, b -> Bool in
+            abs(a) < abs(b) // sort array by abs value, abs small value is at back -> abs large value is at front
+        }
+        var minAbs = abs(2*A[0]) // this is smallest value among sums of value with same index
+        for i in 1..<A.count {
+            minAbs = min(minAbs, abs(A[i] + A[i-1])) // check wether there is any sum of diff index is samller than min result
+        }
+        
+        return minAbs
+    }
+    
+    func solutionNailingPlanks(_ A: [Int], _ B: [Int], _ C:[Int]) -> Int {
+        var begin = 0, end = C.count - 1, result = -1
+        while begin <= end {
+            let mid = (begin + end) / 2
+            if check(A, B, C, mid) == true {
+                end = mid - 1
+                result = mid + 1
+            } else {
+                begin = mid + 1
+            }
+        }
+        
+        return result
+    }
+    
+    internal func check(_ A: [Int], _ B: [Int], _ C:[Int], _ num: Int) -> Bool {
+        var pNails = [Int](repeating: 0, count: 2*C.count + 1)
+        for i in 0..<num {
+            pNails[C[i]] = pNails[C[i]] + 1
+        }
+        for i in 1..<pNails.count {
+            pNails[i] = pNails[i] + pNails[i - 1]
+        }
+        for i in 0..<A.count {
+            if pNails[B[i]] <= pNails[A[i] - 1] {
+                return false
+            }
+        }
+        return true
+    }
 }

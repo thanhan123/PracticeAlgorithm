@@ -188,4 +188,33 @@ class PracticeAlgorithmTests: XCTestCase {
         let result = codilityTest.countNonDivisor([3, 1, 2, 3, 6])
         print("***** CountNonDivisor: \(result)")
     }
+    
+    func testSieveEratosthenes() {
+        let result = codilityTest.solutionSieveEratosthenes(99)
+        print("***** NUmber of prime number <= 50: \(result)")
+    }
+    
+    func testMinAbsSumOfTwo() {
+        var input = [-8, 4, 5, -10, 3]
+        let result = codilityTest.minAbsSumOfTwo(&input)
+        print("***** MinAbsSumOfTwo: \(result)")
+        XCTAssert(result == 3)
+        
+        var input2 = [1, 4, -3]
+        let result2 = codilityTest.minAbsSumOfTwo(&input2)
+        print("***** MinAbsSumOfTwo: \(result2)")
+        XCTAssert(result2 == 1)
+        
+        var input3 = [-10, 4, 10]
+        let result3 = codilityTest.minAbsSumOfTwo(&input3)
+        print("***** MinAbsSumOfTwo: \(result3)")
+        XCTAssert(result3 == 0)
+    }
+    
+    func testNailingPlanks() {
+        let A = [1, 4, 5, 8], B = [4, 5, 9, 10], C = [4, 6, 7, 10, 2]
+        let result = codilityTest.solutionNailingPlanks(A, B, C)
+        print("***** NailingPlanks: \(result)")
+        XCTAssert(result == 4)
+    }
 }
