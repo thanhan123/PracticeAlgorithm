@@ -154,7 +154,7 @@ class CodilityTest {
         var begin = 0, end = C.count - 1, result = -1
         while begin <= end {
             let mid = (begin + end) / 2
-            if check(A, B, C, mid) == true {
+            if check(A, B, C, mid + 1) == true {
                 end = mid - 1
                 result = mid + 1
             } else {
