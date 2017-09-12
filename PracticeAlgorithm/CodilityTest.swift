@@ -154,6 +154,7 @@ class CodilityTest {
         var begin = 0, end = C.count - 1, result = -1
         while begin <= end {
             let mid = (begin + end) / 2
+            // check if number of nail from begin to mid + 1 is enough or not to nail all planks
             if check(A, B, C, mid + 1) == true {
                 end = mid - 1
                 result = mid + 1
@@ -174,6 +175,7 @@ class CodilityTest {
             pNails[i] = pNails[i] + pNails[i - 1]
         }
         for i in 0..<A.count {
+            // check if there is no nail between A[i] and B[i] so the current number of nail is not enough
             if pNails[B[i]] <= pNails[A[i] - 1] {
                 return false
             }
