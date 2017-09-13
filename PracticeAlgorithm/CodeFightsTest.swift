@@ -10,22 +10,33 @@ import Foundation
 
 class CodeFightsTest {
     func firstDuplicate(_ a: [Int]) -> Int {
-        var occuranceArray = [(count: Int, index: Int)](repeating: (count: 0, index: 0), count: a.count + 1)
+        var occuranceArray = [Int](repeating: 0, count: a.count + 1)
         for i in 0..<a.count {
             let number = a[i]
-            if occuranceArray[number].count == 2 {
-                continue
+            if occuranceArray[number] == 1 {
+                return number
             }
-            occuranceArray[number] = (occuranceArray[number].count + 1, occuranceArray[number].count == 0 ? occuranceArray[number].index : i)
-        }
-        var firstDuplicate: (value: Int, index: Int) = (-1, -1)
-        for i in 0..<occuranceArray.count {
-            let (count, index) = occuranceArray[i]
-            if count == 2 && (firstDuplicate.index == -1 || firstDuplicate.index > index)  {
-                firstDuplicate = (i, index)
-            }
+            occuranceArray[number] = occuranceArray[number] + 1
         }
         
-        return firstDuplicate.value
+        return -1
+    }
+    
+    func firstNotRepeatingCharacter(s: String) -> Character {
+        var uniqueCharacterString = ""
+        var repeatedCharacterString = ""
+        for c in s.characters {
+            if !uniqueCharacterString.contains("\(c)") {
+                uniqueCharacterString = uniqueCharacterString.appending("\(c)")
+            } else if !repeatedCharacterString.contains("\(c)"){
+                repeatedCharacterString = repeatedCharacterString.appending("\(c)")
+            }
+        }
+                
+        for c in repeatedCharacterString.characters {
+            uniqueCharacterString = uniqueCharacterString.replacingOccurrences(of: "\(c)", with: "")
+        }
+        
+        return uniqueCharacterString.characters.count > 0 ? uniqueCharacterString.characters.first! : "_"
     }
 }

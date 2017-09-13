@@ -223,10 +223,10 @@ class PracticeAlgorithmTests: XCTestCase {
     }
     
     func testFirstDuplicate() {
-//        let A = [2, 3, 3, 1, 5, 2]
-//        let result = codeFight.firstDuplicate(A)
-//        print("***** FirstDuplicate: \(result)")
-//        XCTAssert(result == 3)
+        let A = [2, 3, 3, 1, 5, 2]
+        let result = codeFight.firstDuplicate(A)
+        print("***** FirstDuplicate: \(result)")
+        XCTAssert(result == 3)
         
         let B = [1, 1, 2, 2, 1]
         let result2 = codeFight.firstDuplicate(B)
