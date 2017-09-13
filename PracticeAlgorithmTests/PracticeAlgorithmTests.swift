@@ -25,6 +25,7 @@ class PracticeAlgorithmTests: XCTestCase {
     var smallestPositiveNotInArray: FindSmallestPositiveIntNotInArray!
     var codilityTest: CodilityTest!
     var manacher: ManacherAlgorithm!
+    var codeFight: CodeFightsTest!
     
     override func setUp() {
         super.setUp()
@@ -44,6 +45,7 @@ class PracticeAlgorithmTests: XCTestCase {
         smallestPositiveNotInArray = FindSmallestPositiveIntNotInArray()
         codilityTest = CodilityTest()
         manacher = ManacherAlgorithm()
+        codeFight = CodeFightsTest()
     }
     
     override func tearDown() {
@@ -218,5 +220,17 @@ class PracticeAlgorithmTests: XCTestCase {
         let result = codilityTest.solutionNailingPlanks(A, B, C)
         print("***** NailingPlanks: \(result)")
         XCTAssert(result == 4)
+    }
+    
+    func testFirstDuplicate() {
+//        let A = [2, 3, 3, 1, 5, 2]
+//        let result = codeFight.firstDuplicate(A)
+//        print("***** FirstDuplicate: \(result)")
+//        XCTAssert(result == 3)
+        
+        let B = [1, 1, 2, 2, 1]
+        let result2 = codeFight.firstDuplicate(B)
+        print("***** FirstDuplicate: \(result2)")
+        XCTAssert(result2 == 1)
     }
 }

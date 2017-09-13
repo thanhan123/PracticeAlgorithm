@@ -23,6 +23,7 @@
 		D16789081F21BCCD002EA2BF /* PracticeAlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16789071F21BCCD002EA2BF /* PracticeAlgorithmTests.swift */; };
 		D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */; };
 		D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16789111F21D7DD002EA2BF /* HeapSort.swift */; };
+		D18978921F694A2200C0FD34 /* CodeFightsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18978911F694A2200C0FD34 /* CodeFightsTest.swift */; };
 		D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C543E1F24869F00100414 /* BinarySearch.swift */; };
 		D19C54411F248C8F00100414 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C54401F248C8F00100414 /* MergeSort.swift */; };
 		D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */; };
@@ -65,6 +66,7 @@
 		D16789091F21BCCD002EA2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D167890F1F21C09E002EA2BF /* MergeKSortedArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeKSortedArrays.swift; sourceTree = "<group>"; };
 		D16789111F21D7DD002EA2BF /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
+		D18978911F694A2200C0FD34 /* CodeFightsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeFightsTest.swift; sourceTree = "<group>"; };
 		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */,
 				D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */,
 				D13101DF1F64DA060045C01A /* CodilityTest.swift */,
+				D18978911F694A2200C0FD34 /* CodeFightsTest.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -266,6 +269,7 @@
 				D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */,
 				D1C4B8161F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift in Sources */,
 				D16788ED1F21BB5A002EA2BF /* ViewController.swift in Sources */,
+				D18978921F694A2200C0FD34 /* CodeFightsTest.swift in Sources */,
 				D16789101F21C09E002EA2BF /* MergeKSortedArrays.swift in Sources */,
 				D1D24DB91F3CAE7E0029F1E3 /* ZAlgorithm.swift in Sources */,
 				D19C543F1F24869F00100414 /* BinarySearch.swift in Sources */,
