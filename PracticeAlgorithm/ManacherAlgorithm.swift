@@ -18,22 +18,17 @@ import Foundation
  * Case 4 : Right side palindrome is proper suffix but its left corresponding palindrome is be beyond current palindrome. Do not consider this
  * as center because it will not extend at all.
  *
- * To handle odd size palindromes replace input string with one containing $ between every input character and in start and end.
+ * To handle even size palindromes replace input string with one containing $ between every input character and in start and end.
  */
 
 struct ManacherAlgorithm {
     func longestPalindromicSubstring(string: String) -> String {
         var palindromicNumbers: [Int] = []
-        var oddString = "$"
-        if string.characters.count % 2 == 0 {
-            palindromicNumbers = buildPalindromicStringNumber(string)
-           
-        } else {
-            for character in string.characters {
-                oddString = oddString.appending("\(character)$")
-            }
-            palindromicNumbers = buildPalindromicStringNumber(oddString)
+        var formatString = "$"
+        for character in string.characters {
+            formatString = formatString.appending("\(character)$")
         }
+        palindromicNumbers = buildPalindromicStringNumber(formatString)
         
         var (position, value) = (0, 0)
         for i in 0..<palindromicNumbers.count {
@@ -45,19 +40,11 @@ struct ManacherAlgorithm {
         }
                 
         var result = ""
-        if string.characters.count % 2 == 0 {
-            let start = string.index(string.startIndex, offsetBy: position - value / 2)
-            let end = string.index(string.startIndex, offsetBy: position + value / 2 + 1)
-            let range = start..<end
-            result = string.substring(with: range)
-            
-        } else {
-            let start = oddString.index(oddString.startIndex, offsetBy: position - value / 2)
-            let end = oddString.index(oddString.startIndex, offsetBy: position + value / 2 + 1)
-            let range = start..<end
-            result = oddString.substring(with: range)
-            result = result.replacingOccurrences(of: "$", with: "")
-        }
+        let start = formatString.index(formatString.startIndex, offsetBy: position - value / 2)
+        let end = formatString.index(formatString.startIndex, offsetBy: position + value / 2 + 1)
+        let range = start..<end
+        result = formatString.substring(with: range)
+        result = result.replacingOccurrences(of: "$", with: "")
         
         return result
     }

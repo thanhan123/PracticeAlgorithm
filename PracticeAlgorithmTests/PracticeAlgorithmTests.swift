@@ -180,8 +180,10 @@ class PracticeAlgorithmTests: XCTestCase {
     func testManacherAlgorithm() {
         let result = manacher.longestPalindromicSubstring(string: "abaxabaxabybaxabyb")
         XCTAssert(result == "baxabybaxab")
-        let result2 = manacher.longestPalindromicSubstring(string: "abaab")
+        let result2 = manacher.longestPalindromicSubstring(string: "baab")
         XCTAssert(result2 == "baab")
+        let result3 = manacher.longestPalindromicSubstring(string: "abaab")
+        XCTAssert(result3 == "baab")
     }
     
     func testCountNonDivisor() {
