@@ -233,4 +233,17 @@ class PracticeAlgorithmTests: XCTestCase {
         print("***** FirstDuplicate: \(result2)")
         XCTAssert(result2 == 1)
     }
+    
+    func testAddTwoHugeNumbersSolution() {
+        let a = ListNode<Int>(123)
+        a.next = ListNode<Int>(4)
+        a.next?.next = ListNode<Int>(5)
+        
+        let b = ListNode<Int>(100)
+        b.next = ListNode<Int>(100)
+        b.next?.next = ListNode<Int>(100)
+        
+        let result = codeFight.addTwoHugeNumbers(a: a, b: b)
+        codeFight.printList(l: result)
+    }
 }

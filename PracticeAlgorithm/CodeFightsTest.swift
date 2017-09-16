@@ -8,6 +8,16 @@
 
 import Foundation
 
+// Definition for singly-linked list:
+public class ListNode<T> {
+    public var value: T
+    public var next: ListNode<T>?
+    public init(_ x: T) {
+        self.value = x
+        self.next = nil
+    }
+}
+
 class CodeFightsTest {
     func firstDuplicate(_ a: [Int]) -> Int {
         var occuranceArray = [Int](repeating: 0, count: a.count + 1)
@@ -21,6 +31,8 @@ class CodeFightsTest {
         
         return -1
     }
+    
+    // ==========================================
     
     func firstNotRepeatingCharacter(s: String) -> Character {
         var uniqueCharacterString = ""
@@ -39,6 +51,8 @@ class CodeFightsTest {
         
         return uniqueCharacterString.characters.count > 0 ? uniqueCharacterString.characters.first! : "_"
     }
+    
+    // ==========================================
     
     func isCryptSolution(crypt: [String], solution: [[Character]]) -> Bool {
         var solutionDict = [String: String]()
@@ -68,6 +82,8 @@ class CodeFightsTest {
         
         return result
     }
+    
+    // ==========================================
 
     func rotateImage(a: inout [[Int]]) -> [[Int]] {
         if a.count <= 1 {
@@ -88,6 +104,8 @@ class CodeFightsTest {
         
         return a
     }
+    
+    // ==========================================
     
     func sudoku2(grid: [[Character]]) -> Bool {
         var set = Set<String>()
@@ -111,15 +129,19 @@ class CodeFightsTest {
         return true
     }
     
-    // Definition for singly-linked list:
-     public class ListNode<T> {
-         public var value: T
-         public var next: ListNode<T>?
-         public init(_ x: T) {
-             self.value = x
-             self.next = nil
-         }
-     }
+    // *****************************************
+    
+    func printList(l: ListNode<Int>?) {
+        var ptr = l
+        print("[", terminator:"")
+        while ptr != nil {
+            print("\((ptr?.value)!), ", terminator:"")
+            ptr = ptr?.next
+        }
+        print("]")
+    }
+    
+    // ==========================================
     
     func removeKFromList(l: ListNode<Int>?, k: Int) -> ListNode<Int>? {
         var pointer = l
@@ -137,6 +159,8 @@ class CodeFightsTest {
         // check if head node has value k
         return l?.value == k ? l?.next : l
     }
+    
+    // ==========================================
     
     func isListPalindrome(l: ListNode<Int>?) -> Bool {
         var slowPtr = l, fastPtr = l,
@@ -208,5 +232,76 @@ class CodeFightsTest {
         }
         
         return false
+    }
+    
+    // ========================================== Not finished yet, this implementation take too long to finish
+    
+    func addTwoHugeNumbers(a: ListNode<Int>?, b: ListNode<Int>?) -> ListNode<Int>? {
+        var numberA = getNumberStringFrom(list: a)
+        var numberB = getNumberStringFrom(list: b)
+        
+        return divideNumber(sNumber: findSum(s1: &numberA, s2: &numberB))
+    }
+    
+    internal func getNumberStringFrom(list: ListNode<Int>?) -> String {
+        var head = list, s = ""
+        while head != nil {
+            var stringNumber = "\((head?.value)!)"
+            for _ in 0..<4 - stringNumber.characters.count{
+                stringNumber.insert("0", at: stringNumber.startIndex)
+            }
+            s.append(stringNumber)
+            head = head?.next
+        }
+        
+        return s
+    }
+    
+    internal func findSum(s1: inout String, s2: inout String) -> String {
+        if s1.characters.count > s2.characters.count {
+            swap(&s1, &s2)
+        }
+        var result = "", carry = 0
+        let n1 = s1.characters.count, n2 = s2.characters.count, diff = n2 - n1
+        for i in (0...n1 - 1).reversed() {
+            let sum = Int("\(s1[s1.index(s1.startIndex, offsetBy: i)])")! + Int("\(s2[s2.index(s2.startIndex, offsetBy: i + diff)])")! + carry
+            result.append("\(sum % 10)")
+            carry = sum / 10
+        }
+        if n2 > n1 {
+            for i in (0...n2 - n1 - 1).reversed() {
+                let sum = Int("\(s2[s2.index(s2.startIndex, offsetBy: i)])")! + carry
+                result.append("\(sum % 10)")
+                carry = sum / 10
+            }
+        }
+        if carry > 0 {
+            result.append("\(carry)")
+        }
+        result = String(result.characters.reversed())
+        
+        return result
+    }
+    
+    internal func divideNumber(sNumber: String) -> ListNode<Int>? {
+        var ptr: ListNode<Int>? = ListNode<Int>(0),
+        index = 0
+        
+        while index < sNumber.characters.count {
+            let end = sNumber.index(sNumber.endIndex, offsetBy: -index)
+            let start = sNumber.index(sNumber.endIndex,
+                                      offsetBy: index + 4 < sNumber.characters.count ? -(index + 4) : -sNumber.characters.count)
+            let number = Int(sNumber.substring(with: start..<end))
+            ptr?.value = number!
+            
+            index = index + 4
+            if index < sNumber.characters.count {
+                let tempPtr = ptr
+                ptr = ListNode<Int>(0)
+                ptr?.next = tempPtr
+            }
+        }
+        
+        return ptr
     }
 }
