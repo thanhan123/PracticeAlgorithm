@@ -243,6 +243,7 @@ class CodeFightsTest {
     
     func addTwoHugeNumbers(a: ListNode<Int>?, b: ListNode<Int>?) -> ListNode<Int>? {
         var l1 = a, l2 = b, result: ListNode<Int>? = nil
+        // reverse 2 lists
         let length1 = reverseList(l: &l1), length2 = reverseList(l: &l2)
         if length1 > length2 {
             result = findSum(l1: &l1, l2: &l2)
@@ -254,6 +255,7 @@ class CodeFightsTest {
         return result
     }
     
+    // get sum of 2 lists by adding one by one number in each node as mathemitcal in school
     internal func findSum(l1: inout ListNode<Int>?, l2: inout ListNode<Int>?) -> ListNode<Int>? {
         var temp1 = l1, temp2 = l2, carry = 0
         let m = 10000
@@ -288,25 +290,26 @@ class CodeFightsTest {
             return nil
         }
         
-        var result = ListNode<Int>(0),
+        var result = ListNode<Int>(0), // create result list
         ptr = result,
         a = l1,
         b = l2
         
         while a != nil && b != nil {
-            var minVal = (a?.value)!
+            var minVal = (a?.value)! // check min value between a.value and b.value
             if minVal > (b?.value)! {
-                minVal = (b?.value)!
+                minVal = (b?.value)! // minor value is b.value -> move b to next value
                 b = b?.next
                 
             } else {
-                a = a?.next
+                a = a?.next // minor value is a.value -> move a to next value
             }
             ptr.value = minVal
-            ptr.next = ListNode<Int>(0)
+            ptr.next = ListNode<Int>(0) // create next node
             ptr = ptr.next!
         }
         
+        // merge result to the remaining list
         if a != nil {
             ptr.value = (a?.value)!
             ptr.next = a?.next
@@ -321,6 +324,7 @@ class CodeFightsTest {
     
     // ==========================================
     
+    // l = 1->2->3->4->5->6->7; k = 3 ====> l = 3->2->2->6->5->4->7
     func reverseNodesInKGroups(l: ListNode<Int>?, k: Int) -> ListNode<Int>? {
         if k == 1 {
             return l
@@ -330,7 +334,7 @@ class CodeFightsTest {
         nextHead = l, prevTail = l,
         count = 1
         while tail != nil{
-            if count % k == 0 {
+            if count % k == 0 { // came to the end of group
                 nextHead = tail?.next
                 tail?.next = nil
                 tail = head
@@ -343,7 +347,7 @@ class CodeFightsTest {
                     prevTail?.next = head
                 }
                 
-                prevTail = tail
+                prevTail = tail // track the end of previous group
                 head = nextHead
             }
             tail = tail?.next
@@ -355,13 +359,14 @@ class CodeFightsTest {
     
     // ==========================================
     
+    // l = 1->2->3->4->5->6->7; n = 3 ====> l = 5->6->7->1->2->3->4
     func rearrangeLastN(l: ListNode<Int>?, n: Int) -> ListNode<Int>? {
         if n == 0 {
             return l
         }
         
         var result = l
-        let length = reverseList(l: &result)
+        let length = reverseList(l: &result) // reverse list result = 7->6->5->4->3->2->1
         if length == n {
             reverseList(l: &result)
             return result
@@ -373,15 +378,19 @@ class CodeFightsTest {
         count = 1
         
         while tail != nil {
-            if count == n {
+            if count == n { // came to the end of the first group
                 nextHead = tail?.next
                 tail?.next = nil
                 tail = head
                 reverseList(l: &head)
                 result = head
+                // result = 5->6->7
+                // nextHead = 4->3->2->1
                 
                 reverseList(l: &nextHead)
+                // nextHead = 1->2->3->4
                 tail?.next = nextHead
+                // result = 5->6->7->1->2->3->4
                 
                 return result
             }
