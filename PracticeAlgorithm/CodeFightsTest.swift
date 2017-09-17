@@ -318,4 +318,78 @@ class CodeFightsTest {
         
         return result
     }
+    
+    // ==========================================
+    
+    func reverseNodesInKGroups(l: ListNode<Int>?, k: Int) -> ListNode<Int>? {
+        if k == 1 {
+            return l
+        }
+        
+        var result = l, head = l, tail = l,
+        nextHead = l, prevTail = l,
+        count = 1
+        while tail != nil && tail?.next != nil{
+            tail = tail?.next
+            count = count + 1
+            if count % k == 0 {
+                nextHead = tail?.next
+                tail?.next = nil
+                tail = head
+                reverseList(l: &head)
+                tail?.next = nextHead
+                if count == k {
+                    result = head
+                    
+                } else {
+                    prevTail?.next = head
+                }
+                
+                prevTail = tail
+                head = nextHead
+            }
+        }
+        
+        return result
+    }
+    
+    // ==========================================
+    
+    func rearrangeLastN(l: ListNode<Int>?, n: Int) -> ListNode<Int>? {
+        if n == 0 {
+            return l
+        }
+        
+        var result = l
+        let length = reverseList(l: &result)
+        if length == n {
+            reverseList(l: &result)
+            return result
+        }
+        
+        var head = result,
+        tail = result,
+        nextHead = result,
+        count = 1
+        
+        while tail != nil && tail?.next != nil {
+            if count == n {
+                nextHead = tail?.next
+                tail?.next = nil
+                tail = head
+                reverseList(l: &head)
+                result = head
+                
+                reverseList(l: &nextHead)
+                tail?.next = nextHead
+                
+                return result
+            }
+            tail = tail?.next
+            count = count + 1
+        }
+        
+        return l
+    }
+    
 }
