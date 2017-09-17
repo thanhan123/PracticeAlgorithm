@@ -199,18 +199,23 @@ class CodeFightsTest {
     }
     
     // reverse list head->1->2->3->4 to be 1<-2<-3<-4<-head
-    internal func reverseList(l: inout ListNode<Int>?){
+    @discardableResult
+    internal func reverseList(l: inout ListNode<Int>?) -> Int{
         var prev: ListNode<Int>? = nil,
         current = l,
-        next: ListNode<Int>? = nil
+        next: ListNode<Int>? = nil,
+        length = 0
         
         while current != nil {
             next = current?.next
             current?.next = prev
             prev = current
             current = next
+            length = length + 1
         }
         l = prev
+        
+        return length
     }
     
     internal func compareList(l: ListNode<Int>?, l2: ListNode<Int>?) -> Bool {
@@ -234,74 +239,44 @@ class CodeFightsTest {
         return false
     }
     
-    // ========================================== Not finished yet, this implementation take too long to finish
+    // ==========================================
     
     func addTwoHugeNumbers(a: ListNode<Int>?, b: ListNode<Int>?) -> ListNode<Int>? {
-        var numberA = getNumberStringFrom(list: a)
-        var numberB = getNumberStringFrom(list: b)
-        
-        return divideNumber(sNumber: findSum(s1: &numberA, s2: &numberB))
-    }
-    
-    internal func getNumberStringFrom(list: ListNode<Int>?) -> String {
-        var head = list, s = ""
-        while head != nil {
-            var stringNumber = "\((head?.value)!)"
-            for _ in 0..<4 - stringNumber.characters.count{
-                stringNumber.insert("0", at: stringNumber.startIndex)
-            }
-            s.append(stringNumber)
-            head = head?.next
+        var l1 = a, l2 = b, result: ListNode<Int>? = nil
+        let length1 = reverseList(l: &l1), length2 = reverseList(l: &l2)
+        if length1 > length2 {
+            result = findSum(l1: &l1, l2: &l2)
+            
+        } else {
+            result = findSum(l1: &l2, l2: &l1)
         }
-        
-        return s
-    }
-    
-    internal func findSum(s1: inout String, s2: inout String) -> String {
-        if s1.characters.count > s2.characters.count {
-            swap(&s1, &s2)
-        }
-        var result = "", carry = 0
-        let n1 = s1.characters.count, n2 = s2.characters.count, diff = n2 - n1
-        for i in (0...n1 - 1).reversed() {
-            let sum = Int("\(s1[s1.index(s1.startIndex, offsetBy: i)])")! + Int("\(s2[s2.index(s2.startIndex, offsetBy: i + diff)])")! + carry
-            result.append("\(sum % 10)")
-            carry = sum / 10
-        }
-        if n2 > n1 {
-            for i in (0...n2 - n1 - 1).reversed() {
-                let sum = Int("\(s2[s2.index(s2.startIndex, offsetBy: i)])")! + carry
-                result.append("\(sum % 10)")
-                carry = sum / 10
-            }
-        }
-        if carry > 0 {
-            result.append("\(carry)")
-        }
-        result = String(result.characters.reversed())
         
         return result
     }
     
-    internal func divideNumber(sNumber: String) -> ListNode<Int>? {
-        var ptr: ListNode<Int>? = ListNode<Int>(0),
-        index = 0
-        
-        while index < sNumber.characters.count {
-            let end = sNumber.index(sNumber.endIndex, offsetBy: -index)
-            let start = sNumber.index(sNumber.endIndex,
-                                      offsetBy: index + 4 < sNumber.characters.count ? -(index + 4) : -sNumber.characters.count)
-            let number = Int(sNumber.substring(with: start..<end))
-            ptr?.value = number!
-            
-            index = index + 4
-            if index < sNumber.characters.count {
-                let tempPtr = ptr
-                ptr = ListNode<Int>(0)
-                ptr?.next = tempPtr
+    internal func findSum(l1: inout ListNode<Int>?, l2: inout ListNode<Int>?) -> ListNode<Int>? {
+        var temp1 = l1, temp2 = l2, carry = 0
+        while temp1 != nil && temp2 != nil {
+            let sum = (temp1?.value)! + (temp2?.value)! + carry
+            temp1?.value = sum % 10000
+            carry = sum / 10000
+            if carry > 0 && temp1?.next == nil {
+                temp1?.next = ListNode<Int>(0)
             }
+            temp1 = temp1?.next
+            temp2 = temp2?.next
         }
+        while carry > 0 {
+            let sum = (temp1?.value)! + carry
+            temp1?.value = sum % 10000
+            carry = sum / 10000
+            if carry > 0 && temp1?.next == nil {
+                temp1?.next = ListNode<Int>(0)
+            }
+            temp1 = temp1?.next
+        }
+        reverseList(l: &l1)
         
-        return ptr
+        return l1
     }
 }
