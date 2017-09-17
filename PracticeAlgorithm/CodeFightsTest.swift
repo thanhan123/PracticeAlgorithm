@@ -256,10 +256,11 @@ class CodeFightsTest {
     
     internal func findSum(l1: inout ListNode<Int>?, l2: inout ListNode<Int>?) -> ListNode<Int>? {
         var temp1 = l1, temp2 = l2, carry = 0
+        let m = 10000
         while temp1 != nil && temp2 != nil {
             let sum = (temp1?.value)! + (temp2?.value)! + carry
-            temp1?.value = sum % 10000
-            carry = sum / 10000
+            temp1?.value = sum % m
+            carry = sum / m
             if carry > 0 && temp1?.next == nil {
                 temp1?.next = ListNode<Int>(0)
             }
@@ -268,8 +269,8 @@ class CodeFightsTest {
         }
         while carry > 0 {
             let sum = (temp1?.value)! + carry
-            temp1?.value = sum % 10000
-            carry = sum / 10000
+            temp1?.value = sum % m
+            carry = sum / m
             if carry > 0 && temp1?.next == nil {
                 temp1?.next = ListNode<Int>(0)
             }
@@ -278,5 +279,43 @@ class CodeFightsTest {
         reverseList(l: &l1)
         
         return l1
+    }
+    
+    // ==========================================
+    
+    func mergeTwoLinkedLists(l1: ListNode<Int>?, l2: ListNode<Int>?) -> ListNode<Int>? {
+        if l1 == nil && l2 == nil {
+            return nil
+        }
+        
+        var result = ListNode<Int>(0),
+        ptr = result,
+        a = l1,
+        b = l2
+        
+        while a != nil && b != nil {
+            var minVal = (a?.value)!
+            if minVal > (b?.value)! {
+                minVal = (b?.value)!
+                b = b?.next
+                
+            } else {
+                a = a?.next
+            }
+            ptr.value = minVal
+            ptr.next = ListNode<Int>(0)
+            ptr = ptr.next!
+        }
+        
+        if a != nil {
+            ptr.value = (a?.value)!
+            ptr.next = a?.next
+            
+        } else if b != nil {
+            ptr.value = (b?.value)!
+            ptr.next = b?.next
+        }
+        
+        return result
     }
 }
