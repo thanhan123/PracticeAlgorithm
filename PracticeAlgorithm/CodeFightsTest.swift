@@ -372,7 +372,7 @@ class CodeFightsTest {
         nextHead = result,
         count = 1
         
-        while tail != nil && tail?.next != nil {
+        while tail != nil {
             if count == n {
                 nextHead = tail?.next
                 tail?.next = nil

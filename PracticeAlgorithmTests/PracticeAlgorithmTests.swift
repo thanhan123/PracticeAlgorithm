@@ -265,7 +265,7 @@ class PracticeAlgorithmTests: XCTestCase {
         a.next?.next?.next = ListNode<Int>(4)
         a.next?.next?.next?.next = ListNode<Int>(5)
         
-        let result = codeFight.rearrangeLastN(l: a, n: 5)
+        let result = codeFight.rearrangeLastN(l: a, n: 2)
         codeFight.printList(l: result)
     }
 }
