@@ -336,19 +336,19 @@ class CodeFightsTest {
         while tail != nil{
             if count % k == 0 { // came to the end of group
                 nextHead = tail?.next
-                tail?.next = nil
-                tail = head
-                reverseList(l: &head)
+                tail?.next = nil // cut the list at tail node: ... head ->...-> tail ...
+                tail = head // tail move to head to prepare for reversing list head ->...-> tail
+                reverseList(l: &head) // reverse list from head and change head position
                 tail?.next = nextHead
                 if count == k {
-                    result = head
+                    result = head // if this is first group set result to be head
                     
                 } else {
-                    prevTail?.next = head
+                    prevTail?.next = head // concatenate previous group to current group
                 }
                 
-                prevTail = tail // track the end of previous group
-                head = nextHead
+                prevTail = tail // set current group to be previous group
+                head = nextHead // move head to new position (next postion of head)
             }
             tail = tail?.next
             count = count + 1
