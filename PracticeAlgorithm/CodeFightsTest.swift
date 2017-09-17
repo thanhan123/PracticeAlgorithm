@@ -329,9 +329,7 @@ class CodeFightsTest {
         var result = l, head = l, tail = l,
         nextHead = l, prevTail = l,
         count = 1
-        while tail != nil && tail?.next != nil{
-            tail = tail?.next
-            count = count + 1
+        while tail != nil{
             if count % k == 0 {
                 nextHead = tail?.next
                 tail?.next = nil
@@ -348,6 +346,8 @@ class CodeFightsTest {
                 prevTail = tail
                 head = nextHead
             }
+            tail = tail?.next
+            count = count + 1
         }
         
         return result

@@ -252,7 +252,7 @@ class PracticeAlgorithmTests: XCTestCase {
         a.next = ListNode<Int>(2)
         a.next?.next = ListNode<Int>(3)
         a.next?.next?.next = ListNode<Int>(4)
-        a.next?.next?.next?.next = ListNode<Int>(5)
+//        a.next?.next?.next?.next = ListNode<Int>(5)
         
         let result = codeFight.reverseNodesInKGroups(l: a, k: 2)
         codeFight.printList(l: result)
