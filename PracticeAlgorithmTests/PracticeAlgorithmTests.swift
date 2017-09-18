@@ -292,4 +292,29 @@ class PracticeAlgorithmTests: XCTestCase {
         let result = hackerRank.leftRotationArray(&A, 2)
         print(result)
     }
+    
+    func testDeletedNumberToMakeAnagrams() {
+        let a = "fcrxzwscanmligyxyvym", b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke"
+        let result = hackerRank.deletedNumberToMakeAnagrams(a, b)
+        print(result)
+    }
+    
+    func testCanRansomNote() {
+        let a = "give me one grand today night", b = "give one grand today"
+        let result = hackerRank.canRansomNote(a, b)
+        print(result)
+    }
+    
+    func testIsBalancedBrackets() {
+        let a = "{[()]}", b = "{[(])}", c = "{{[[(())]]}}"
+        
+        let result = hackerRank.isBalancedBrackets(a)
+        print(result)
+        
+        let result2 = hackerRank.isBalancedBrackets(b)
+        print(result2)
+        
+        let result3 = hackerRank.isBalancedBrackets(c)
+        print(result3)
+    }
 }
