@@ -401,4 +401,39 @@ class CodeFightsTest {
         return l
     }
     
+    // *****************************************
+    
+    func groupingDishes(dishes: [[String]]) -> [[String]] {
+        var ingredientDict = [String: [String]]()
+        for i in 0..<dishes.count {
+            for j in 1..<dishes[i].count {
+                if ingredientDict[dishes[i][j]] == nil {
+                    ingredientDict[dishes[i][j]] = []
+                }
+                ingredientDict[dishes[i][j]]?.append(dishes[i][0])
+            }
+        }
+        let groups =
+        ingredientDict.filter { key, value -> Bool in
+            value.count >= 2
+        }.sorted { a, b -> Bool in
+            a.key < b.key
+        }
+        var result = [[String]]()
+        for (key, value) in groups {
+            var group = value
+            group.sort(by: { (a, b) -> Bool in
+                a < b
+            })
+            group.insert(key, at: 0)
+            result.append(group)
+        }
+        
+        return result
+    }
+    
+    // *****************************************
+    
+    
+
 }

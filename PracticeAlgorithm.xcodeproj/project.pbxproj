@@ -14,6 +14,7 @@
 		D13101E01F64DA060045C01A /* CodilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13101DF1F64DA060045C01A /* CodilityTest.swift */; };
 		D142098A1F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */; };
 		D142098C1F3877CD0071C1DA /* RabinKarpAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */; };
+		D150A5681F6FA4E10047BA62 /* HackerRankTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D150A5671F6FA4E10047BA62 /* HackerRankTest.swift */; };
 		D16788EB1F21BB5A002EA2BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16788EA1F21BB5A002EA2BF /* AppDelegate.swift */; };
 		D16788ED1F21BB5A002EA2BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16788EC1F21BB5A002EA2BF /* ViewController.swift */; };
 		D16788F01F21BB5A002EA2BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16788EE1F21BB5A002EA2BF /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		D13101DF1F64DA060045C01A /* CodilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodilityTest.swift; sourceTree = "<group>"; };
 		D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPSearchSubStringAlgorithm.swift; sourceTree = "<group>"; };
 		D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RabinKarpAlgorithm.swift; sourceTree = "<group>"; };
+		D150A5671F6FA4E10047BA62 /* HackerRankTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackerRankTest.swift; sourceTree = "<group>"; };
 		D16788E71F21BB5A002EA2BF /* PracticeAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16788EA1F21BB5A002EA2BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16788EC1F21BB5A002EA2BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D1C4B8151F63D4CC003AD5F1 /* FindSmallestPositiveIntNotInArray.swift */,
 				D13101DF1F64DA060045C01A /* CodilityTest.swift */,
 				D18978911F694A2200C0FD34 /* CodeFightsTest.swift */,
+				D150A5671F6FA4E10047BA62 /* HackerRankTest.swift */,
 				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
@@ -284,6 +287,7 @@
 				D12A3B441F3EE6A900A60B92 /* Extension.swift in Sources */,
 				D12A3B3E1F3EBBA300A60B92 /* Trie.swift in Sources */,
 				D1A3399F1F26055D001926F9 /* GetKSmallestElement.swift in Sources */,
+				D150A5681F6FA4E10047BA62 /* HackerRankTest.swift in Sources */,
 				D16789121F21D7DD002EA2BF /* HeapSort.swift in Sources */,
 				D13101E01F64DA060045C01A /* CodilityTest.swift in Sources */,
 			);
