@@ -108,36 +108,31 @@ class HackerRank {
         if a.characters.count % 2 != 0 {
             return false
         }
-        
-        var firstHalf = a.substring(to: a.index(a.startIndex, offsetBy: a.characters.count / 2))
-        let secondHalf = a.substring(from: a.index(a.startIndex, offsetBy: a.characters.count / 2))
-        firstHalf = String(firstHalf.characters.reversed())
-        
-        for i in 0..<firstHalf.characters.count {
-            let temp = firstHalf[firstHalf.index(firstHalf.startIndex, offsetBy: i)]
-            let temp2 = secondHalf[secondHalf.index(secondHalf.startIndex, offsetBy: i)]
-            
-            switch temp {
-            case "{":
-                if temp2 != "}" {
-                    return false
-                }
-            
-            case "[":
-                if temp2 != "]" {
-                    return false
-                }
-                
+        let stack = parseBrackets(a)
+        return true
+    }
+    
+    internal func parseBrackets(_ s: String) -> [Int] {
+        var stack = [Int]()
+        for c in s.characters {
+            switch c {
             case "(":
-                if temp2 != ")" {
-                    return false
-                }
-                
+                stack.append(1)
+            case "[":
+                stack.append(2)
+            case "{":
+                stack.append(3)
+            case ")":
+                stack.append(-1)
+            case "]":
+                stack.append(-2)
+            case "}":
+                stack.append(-3)
             default:
                 break
             }
         }
         
-        return true
+        return stack
     }
 }

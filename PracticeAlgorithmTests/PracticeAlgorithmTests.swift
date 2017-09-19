@@ -306,7 +306,7 @@ class PracticeAlgorithmTests: XCTestCase {
     }
     
     func testIsBalancedBrackets() {
-        let a = "{[()]}", b = "{[(])}", c = "{{[[(())]]}}"
+        let a = "{[()]}", b = "{[(])}", c = "{{[[(())]]}}", d = "{}{()}{{}}"
         
         let result = hackerRank.isBalancedBrackets(a)
         print(result)
@@ -316,5 +316,8 @@ class PracticeAlgorithmTests: XCTestCase {
         
         let result3 = hackerRank.isBalancedBrackets(c)
         print(result3)
+        
+        let result4 = hackerRank.isBalancedBrackets(d)
+        print(result4)
     }
 }
