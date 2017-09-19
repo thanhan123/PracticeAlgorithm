@@ -32,6 +32,8 @@ class HackerRank {
         }
     }
     
+    // ===============================================
+    
     func deletedNumberToMakeAnagrams(_ a: String, _ b: String) -> Int {
         var frequencyCharacterDictA = [String: Int]()
         for c in a.characters {
@@ -71,6 +73,8 @@ class HackerRank {
         return result
     }
     
+    // ===============================================
+    
     func canRansomNote(_ a: String, _ b: String) -> Bool {
         var freqCharactersA = [String: Int]()
         for w in a.components(separatedBy: " ") {
@@ -104,35 +108,40 @@ class HackerRank {
         return true
     }
     
+    // ===============================================
+    
+//    let number = Int(readLine()!)!
+//    for _ in 0..<number {
+//    let string = readLine()!
+//    print(isBalancedBrackets(string) ? "YES" : "NO")
+    
     func isBalancedBrackets(_ a: String) -> Bool {
         if a.characters.count % 2 != 0 {
             return false
         }
-        let stack = parseBrackets(a)
-        return true
-    }
-    
-    internal func parseBrackets(_ s: String) -> [Int] {
-        var stack = [Int]()
-        for c in s.characters {
-            switch c {
-            case "(":
-                stack.append(1)
-            case "[":
-                stack.append(2)
-            case "{":
-                stack.append(3)
-            case ")":
-                stack.append(-1)
-            case "]":
-                stack.append(-2)
-            case "}":
-                stack.append(-3)
-            default:
-                break
+        var stack = [String]()
+        for c in a.characters {
+            if c == "(" {
+                stack.append(")")
+                
+            } else if c == "{" {
+                stack.append("}")
+                
+            } else if c == "[" {
+                stack.append("]")
+                
+            } else {
+                if stack.isEmpty || "\(c)" != stack.last {
+                    return false
+                }
+                stack.removeLast()
             }
         }
         
-        return stack
+        return stack.isEmpty
     }
+    
+    // ===============================================
+    
+    
 }

@@ -306,18 +306,25 @@ class PracticeAlgorithmTests: XCTestCase {
     }
     
     func testIsBalancedBrackets() {
-        let a = "{[()]}", b = "{[(])}", c = "{{[[(())]]}}", d = "{}{()}{{}}"
+        let a = "{[()]}", b = "{[(])}", c = "{{[[(())]]}}", d = "{}{()}{{}}", e = "(]]){)][((}((){[(((]((})[((}][]{[]}([][]])({][){}}[{{]}])}()(}{)]}]])(}{[][]){([)))[{[[)))(}][]{]}[{([(}]([{{{))}})}[)[](}({((}{)(](}[}[[())()]",
+        f = "{(()()})([)(}{(])[{([]){}{{{]{]{{}[({]{[(()){}[)}(([[([{}}){]](}[{}}(){}[[)[}}{}[]{(){][]](}]})[[))))][}(}()){()}([}([})[[}}({{[)}][[]])[[}])]][](([}()[)}])][}}}(()(())({{[]][))}{[[[]]{{[{]}{}}))"
         
         let result = hackerRank.isBalancedBrackets(a)
-        print(result)
+        XCTAssert(result == true)
         
         let result2 = hackerRank.isBalancedBrackets(b)
-        print(result2)
+        XCTAssert(result2 == false)
         
         let result3 = hackerRank.isBalancedBrackets(c)
-        print(result3)
+        XCTAssert(result3 == true)
         
         let result4 = hackerRank.isBalancedBrackets(d)
-        print(result4)
+        XCTAssert(result4 == true)
+        
+        let result5 = hackerRank.isBalancedBrackets(e)
+        XCTAssert(result5 == false)
+        
+        let result6 = hackerRank.isBalancedBrackets(f)
+        XCTAssert(result6 == false)
     }
 }
