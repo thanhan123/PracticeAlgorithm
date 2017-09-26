@@ -327,4 +327,11 @@ class PracticeAlgorithmTests: XCTestCase {
         let result6 = hackerRank.isBalancedBrackets(f)
         XCTAssert(result6 == false)
     }
+    
+    func testHasPathWithGivenSum() {
+        let t = Tree<Int>(8)
+        t.right = Tree<Int>(3)
+        
+        XCTAssert(codeFight.hasPathWithGivenSum(t: t, s: 8) == false)
+    }
 }

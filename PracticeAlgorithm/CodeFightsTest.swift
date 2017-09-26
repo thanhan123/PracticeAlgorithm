@@ -18,6 +18,18 @@ public class ListNode<T> {
     }
 }
 
+// Definition for binary tree:
+ public class Tree<T> {
+     public var value: T
+     public var left: Tree<T>?
+     public var right: Tree<T>?
+     public init(_ x: T) {
+         self.value = x
+         self.left = nil
+         self.right = nil
+     }
+ }
+
 class CodeFightsTest {
     func firstDuplicate(_ a: [Int]) -> Int {
         var occuranceArray = [Int](repeating: 0, count: a.count + 1)
@@ -434,6 +446,24 @@ class CodeFightsTest {
     
     // *****************************************
     
+    func hasPathWithGivenSum(t: Tree<Int>?, s: Int) -> Bool {
+        if t?.left == nil && t?.right == nil {
+            return t?.value ?? 0 == s
+        }        
+        return hasPathWithGivenSum(t: t, prevSum: 0, s: s)
+    }
     
+    internal func hasPathWithGivenSum(t: Tree<Int>?, prevSum: Int, s: Int) -> Bool {
+        if t == nil {
+            return prevSum == s
+        }
+        if hasPathWithGivenSum(t: t?.left, prevSum: (t?.value)! + prevSum, s: s) {
+            return true
+        }
+        if hasPathWithGivenSum(t: t?.right, prevSum: (t?.value)! + prevSum, s: s) {
+            return true
+        }
+        return false
+    }
 
 }

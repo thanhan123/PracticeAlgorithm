@@ -26,7 +26,7 @@ class HackerRank {
         var b = begin
         var e = end
         while b < e {
-            swap(&a[b], &a[e])
+            a.swapAt(b, e)
             b = b + 1
             e = e - 1
         }
@@ -143,5 +143,16 @@ class HackerRank {
     
     // ===============================================
     
-    
+    func queueCommand(_ commandCode: Int, _ value: Int? = nil) {
+        switch commandCode {
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        default:
+            break
+        }
+    }
 }
