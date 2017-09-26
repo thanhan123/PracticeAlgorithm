@@ -26,7 +26,7 @@ class HackerRank {
         var b = begin
         var e = end
         while b < e {
-            a.swapAt(b, e)
+            swap(&a[b], &a[e])
             b = b + 1
             e = e - 1
         }

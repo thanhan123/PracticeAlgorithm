@@ -449,7 +449,7 @@ class CodeFightsTest {
     func hasPathWithGivenSum(t: Tree<Int>?, s: Int) -> Bool {
         if t?.left == nil && t?.right == nil {
             return t?.value ?? 0 == s
-        }        
+        }
         return hasPathWithGivenSum(t: t, prevSum: 0, s: s)
     }
     
@@ -458,12 +458,27 @@ class CodeFightsTest {
             return prevSum == s
         }
         if hasPathWithGivenSum(t: t?.left, prevSum: (t?.value)! + prevSum, s: s) {
-            return true
+            if (t?.value)! != s || t?.left != nil  {
+                return true
+            }
         }
         if hasPathWithGivenSum(t: t?.right, prevSum: (t?.value)! + prevSum, s: s) {
-            return true
+            if (t?.value)! != s || t?.right != nil  {
+                return true
+            }
         }
         return false
     }
-
+    
+    // ==========================================
+    
+    func isTreeSymmetric(t: Tree<Int>?) -> Bool {
+        return checkTwoTreesSymmetric(t: t?.left, t2: t?.right)
+    }
+    
+    func checkTwoTreesSymmetric(t: Tree<Int>?, t2: Tree<Int>?) -> Bool {
+        
+        return true
+    }
+    
 }

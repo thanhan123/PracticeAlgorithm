@@ -333,5 +333,36 @@ class PracticeAlgorithmTests: XCTestCase {
         t.right = Tree<Int>(3)
         
         XCTAssert(codeFight.hasPathWithGivenSum(t: t, s: 8) == false)
+        
+        let t2 = Tree<Int>(4)
+        t2.left = Tree<Int>(1)
+        t2.left?.left = Tree<Int>(-2)
+        t2.left?.left?.right = Tree<Int>(3)
+        
+        t2.right = Tree<Int>(3)
+        t2.right?.left = Tree<Int>(1)
+        t2.right?.right = Tree<Int>(2)
+        t2.right?.right?.left = Tree<Int>(-2)
+        t2.right?.right?.right = Tree<Int>(-3)
+        
+        XCTAssert(codeFight.hasPathWithGivenSum(t: t2, s: 7) == true)
+    }
+    
+    func testIsTreeSymmetric() {
+        let t = Tree<Int>(8)
+        t.right = Tree<Int>(3)
+        
+        XCTAssert(codeFight.hasPathWithGivenSum(t: t, s: 8) == false)
+        
+        let t2 = Tree<Int>(1)
+        t2.left = Tree<Int>(2)
+        t2.left?.left = Tree<Int>(3)
+        t2.left?.right = Tree<Int>(4)
+        
+        t2.right = Tree<Int>(2)
+        t2.right?.left = Tree<Int>(4)
+        t2.right?.right = Tree<Int>(3)
+        
+        XCTAssert(codeFight.hasPathWithGivenSum(t: t2, s: 7) == true)
     }
 }
