@@ -352,7 +352,7 @@ class PracticeAlgorithmTests: XCTestCase {
         let t = Tree<Int>(8)
         t.right = Tree<Int>(3)
         
-        XCTAssert(codeFight.hasPathWithGivenSum(t: t, s: 8) == false)
+        XCTAssert(codeFight.isTreeSymmetric(t: t) == false)
         
         let t2 = Tree<Int>(1)
         t2.left = Tree<Int>(2)
@@ -363,6 +363,15 @@ class PracticeAlgorithmTests: XCTestCase {
         t2.right?.left = Tree<Int>(4)
         t2.right?.right = Tree<Int>(3)
         
-        XCTAssert(codeFight.hasPathWithGivenSum(t: t2, s: 7) == true)
+        XCTAssert(codeFight.isTreeSymmetric(t: t2) == true)
+        
+        let t3 = Tree<Int>(1)
+        t3.left = Tree<Int>(2)
+        t3.left?.left = Tree<Int>(3)
+        
+        t3.right = Tree<Int>(2)
+        t3.right?.left = Tree<Int>(3)
+        
+        XCTAssert(codeFight.isTreeSymmetric(t: t3) == false)
     }
 }

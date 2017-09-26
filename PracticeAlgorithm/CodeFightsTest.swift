@@ -477,8 +477,14 @@ class CodeFightsTest {
     }
     
     func checkTwoTreesSymmetric(t: Tree<Int>?, t2: Tree<Int>?) -> Bool {
-        
-        return true
+        if t == nil && t2 == nil {
+            return true
+        }
+        if t?.value != t2?.value {
+            return false
+        }
+        return checkTwoTreesSymmetric(t: t?.left, t2: t2?.right) &&
+               checkTwoTreesSymmetric(t: t?.right, t2: t2?.left)
     }
     
 }
