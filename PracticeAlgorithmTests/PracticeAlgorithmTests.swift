@@ -374,4 +374,8 @@ class PracticeAlgorithmTests: XCTestCase {
         
         XCTAssert(codeFight.isTreeSymmetric(t: t3) == false)
     }
+    
+    func testFindProfession() {
+        XCTAssert(codeFight.findProfession(level: 4, pos: 5) == "Doctor")
+    }
 }

@@ -476,7 +476,7 @@ class CodeFightsTest {
         return checkTwoTreesSymmetric(t: t?.left, t2: t?.right)
     }
     
-    func checkTwoTreesSymmetric(t: Tree<Int>?, t2: Tree<Int>?) -> Bool {
+    internal func checkTwoTreesSymmetric(t: Tree<Int>?, t2: Tree<Int>?) -> Bool {
         if t == nil && t2 == nil {
             return true
         }
@@ -487,4 +487,72 @@ class CodeFightsTest {
                checkTwoTreesSymmetric(t: t?.right, t2: t2?.left)
     }
     
+    // ==========================================
+    
+    func findProfession(level: Int, pos: Int) -> String {
+        var tempPos = pos - 1, result = 0
+        for _ in 1..<level {
+            if tempPos % 2 != 0 {
+                result = result + 1
+            }
+            tempPos = tempPos / 2
+        }
+        return result % 2 == 0 ? "Engineer" : "Doctor"
+    }
+    
+    // ==========================================
+    
+    func kthLargestInBST(t: Tree<Int>?, k: Int) -> Int {
+//        var count = 0, ksmall = Int.min, curr = t
+//
+//        while curr != nil {
+//            if curr?.left == nil {
+//                count = count + 1
+//                if (count == k) {
+//                    ksmall = (curr?.value)!
+//                }
+//                curr = curr?.right
+//            } else {
+//                var pre = curr?.left
+//                while pre?.right != nil && pre?.right !== curr {
+//                    pre = pre?.right
+//                }
+//                if pre?.right == nil {
+//                    pre?.right = curr
+//                    curr = curr?.left
+//                } else {
+//                    pre?.right = nil
+//                    count = count + 1
+//                    if count == k {
+//                        ksmall = (curr?.value)!
+//                    }
+//                    curr = curr?.right
+//                }
+//            }
+//        }
+//
+//        return ksmall
+        
+        // in-order traversal
+        
+        var i = 0, ret = 0
+        
+        func f(_ node: Tree<Int>?) {
+            
+            if let n = node {
+                
+                if let l = n.left { f(l) }
+                
+                i += 1
+                
+                if i == k { ret = n.value }
+                
+                if let r = n.right { f(r) }
+            }
+        }
+        
+        f(t)
+        
+        return ret
+    }
 }
