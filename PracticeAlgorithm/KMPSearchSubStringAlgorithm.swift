@@ -38,7 +38,7 @@ class KMPSearchSubStringAlgorithm {
         return result
     }
     
-    func buildLPSArray(_ pattern: String) -> [Int] {
+    internal func buildLPSArray(_ pattern: String) -> [Int] {
         var lps = [0]
         
         var j = 0, i = 1

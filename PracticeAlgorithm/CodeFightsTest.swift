@@ -109,7 +109,7 @@ class CodeFightsTest {
         for n in 0..<a.count {
             for m in 0..<a.count / 2 {
                 if m != a.count - 1 - m {
-                    swap(&a[n][m], &a[n][a.count - 1 - m])
+                    a[n].swapAt(m, a.count - 1 - m)
                 }
             }
         }
@@ -554,5 +554,65 @@ class CodeFightsTest {
         f(t)
         
         return ret
+    }
+    
+    // ==========================================
+    
+    func isSubtree(t1: Tree<Int>?, t2: Tree<Int>?) -> Bool {
+//        var inT1 = "", inT2 = "", preT1 = "", preT2 = ""
+//        storeInOder(t: t1, s: &inT1)
+//        storeInOder(t: t2, s: &inT2)
+//
+//        let kmpAlgo = KMPSearchSubStringAlgorithm()
+//        if kmpAlgo.searchPattern(inT2, inText: inT1).count == 0 {
+//            return false
+//        }
+//
+//        storePreOder(t: t1, s: &preT1)
+//        storePreOder(t: t2, s: &preT2)
+//        return kmpAlgo.searchPattern(preT2, inText: preT1).count > 0
+        
+        if t2 == nil { return true }
+        if t1 == nil { return false }
+        if areIdentical(t1: t1, t2: t2) {
+            return true
+        }
+        
+        return isSubtree(t1: t1?.left, t2: t2) ||
+               isSubtree(t1: t1?.right, t2: t2)
+    }
+    
+    internal func areIdentical(t1: Tree<Int>?, t2: Tree<Int>?) -> Bool {
+        if t1 == nil && t2 == nil {
+            return true
+        }
+        
+        if t1 == nil || t2 == nil {
+            return false
+        }
+        
+        return t1?.value == t2?.value &&
+        areIdentical(t1: t1?.left, t2: t2?.left) &&
+        areIdentical(t1: t1?.right, t2: t2?.right)
+    }
+    
+    internal func storeInOder(t: Tree<Int>?, s: inout String) {
+        if t == nil {
+            s.append("$")
+            return
+        }
+        storeInOder(t: t?.left, s: &s)
+        s.append("\((t?.value)!)")
+        storeInOder(t: t?.right, s: &s)
+    }
+    
+    internal func storePreOder(t: Tree<Int>?, s: inout String) {
+        if t == nil {
+            s.append("$")
+            return
+        }
+        s.append("\((t?.value)!)")
+        storePreOder(t: t?.left, s: &s)
+        storePreOder(t: t?.right, s: &s)
     }
 }

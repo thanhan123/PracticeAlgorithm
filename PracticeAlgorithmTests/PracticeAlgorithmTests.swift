@@ -378,4 +378,24 @@ class PracticeAlgorithmTests: XCTestCase {
     func testFindProfession() {
         XCTAssert(codeFight.findProfession(level: 4, pos: 5) == "Doctor")
     }
+    
+    func testIsSubtree() {
+        let t1 = Tree<Int>(5)
+        t1.left = Tree<Int>(10)
+        t1.left?.left = Tree<Int>(4)
+        t1.left?.left?.left = Tree<Int>(1)
+        t1.left?.left?.right = Tree<Int>(2)
+        t1.left?.right = Tree<Int>(6)
+        t1.left?.right?.right = Tree<Int>(-1)
+        t1.right = Tree<Int>(7)
+        
+        let t2 = Tree<Int>(10)
+        t2.left = Tree<Int>(4)
+        t2.left?.left = Tree<Int>(1)
+        t2.left?.right = Tree<Int>(2)
+        t2.right = Tree<Int>(6)
+        t2.right?.right = Tree<Int>(-1)
+        
+        XCTAssert(codeFight.isSubtree(t1: t1, t2: t2) == true)
+    }
 }
