@@ -615,4 +615,59 @@ class CodeFightsTest {
         storePreOder(t: t?.left, s: &s)
         storePreOder(t: t?.right, s: &s)
     }
+    
+    // ==========================================
+    
+    func restoreBinaryTree(inorder: [Int], preorder: [Int]) -> Tree<Int>? {
+        var preorderIndex = 0
+        return buildTree(inorder, preorder, 0, inorder.count - 1, &preorderIndex)
+    }
+    
+    internal func buildTree(_ inorder: [Int], _ preorder: [Int],
+                            _ inIndexStart: Int, _ inIndexEnd: Int, _ preIndex: inout Int) -> Tree<Int>? {
+        if inIndexStart > inIndexEnd { return nil }
+        let root = Tree<Int>(preorder[preIndex])
+        preIndex+=1
+        
+        let inIndex = inorder.index(of: root.value)!
+        
+        root.left = buildTree(inorder, preorder, inIndexStart, inIndex - 1, &preIndex)
+        root.right = buildTree(inorder, preorder, inIndex + 1, inIndexEnd, &preIndex)
+        
+        return root
+    }
+    
+    // ==========================================
+    
+    func findSubstrings(words: [String], parts: [String]) -> [String] {
+        let kmpAlgo = KMPSearchSubStringAlgorithm()
+        var result = [String]()
+        for word in words {
+            var partContained = ""
+            for part in parts {
+                let positionSubstring = kmpAlgo.searchPattern(part, inText: word),
+                positionPartContained = kmpAlgo.searchPattern(partContained, inText: word)
+                var partIsFirstOccurance = true
+                if positionPartContained.count > 0 && positionSubstring.count > 0 {
+                    partIsFirstOccurance = positionSubstring[0] < positionPartContained[0]
+                } else {
+                    partIsFirstOccurance = positionSubstring.count > 0
+                }
+                if positionSubstring.count > 0 &&
+                    (part.characters.count > partContained.characters.count ||
+                    (part.characters.count == partContained.characters.count && partIsFirstOccurance)) {
+                    partContained = part
+                }
+            }
+            var stringResult = word
+            if partContained.characters.count == 0 {
+                result.append(stringResult)
+                continue
+            }
+            stringResult.replaceSubrange(stringResult.range(of: partContained)!, with: "[\(partContained)]")
+            result.append(stringResult)
+        }
+        return result
+    }
+
 }

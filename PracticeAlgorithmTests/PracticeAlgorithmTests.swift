@@ -398,4 +398,45 @@ class PracticeAlgorithmTests: XCTestCase {
         
         XCTAssert(codeFight.isSubtree(t1: t1, t2: t2) == true)
     }
+    
+    func testRestoreBinaryTree() {
+        let inorder = [4, 2, 1, 5, 3, 6], preorder = [1, 2, 4, 3, 5, 6]
+        let root = codeFight.restoreBinaryTree(inorder: inorder, preorder: preorder)
+        print("\(String(describing: root?.value))")
+    }
+    
+    func testFindSubstrings() {
+        print(codeFight.findSubstrings(words: ["Apple", "Melon", "Orange", "Watermelon"], parts: ["a", "mel", "lon", "el", "An"]))
+        print(codeFight.findSubstrings(words: ["neuroses",
+                                               "myopic",
+                                               "sufficient",
+                                               "televise",
+                                               "coccidiosis",
+                                               "gules",
+                                               "during",
+                                               "construe",
+                                               "establish",
+                                               "ethyl"],
+                                       parts: ["aaaaa",
+                                                 "Aaaa",
+                                                 "E",
+                                                 "z",
+                                                 "Zzzzz",
+                                                 "a",
+                                                 "mel",
+                                                 "lon",
+                                                 "el",
+                                                 "An",
+                                                 "ise",
+                                                 "d",
+                                                 "g",
+                                                 "wnoVV",
+                                                 "i",
+                                                 "IUMc",
+                                                 "P",
+                                                 "KQ",
+                                                 "QfRz",
+                                                 "Xyj",
+                                                 "yiHS"]))
+    }
 }

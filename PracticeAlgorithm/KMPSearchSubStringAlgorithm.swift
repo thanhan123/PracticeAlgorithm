@@ -12,7 +12,9 @@ class KMPSearchSubStringAlgorithm {
     
     func searchPattern(_ pattern: String, inText text: String) -> [Int] {
         var result: [Int] = []
-        
+        if pattern.characters.count == 0 {
+            return result
+        }
         let lps = buildLPSArray(pattern)
         
         var j = 0, i = 0
