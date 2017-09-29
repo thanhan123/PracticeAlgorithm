@@ -640,34 +640,13 @@ class CodeFightsTest {
     // ==========================================
     
     func findSubstrings(words: [String], parts: [String]) -> [String] {
-        let kmpAlgo = KMPSearchSubStringAlgorithm()
-        var result = [String]()
-        for word in words {
-            var partContained = ""
-            for part in parts {
-                let positionSubstring = kmpAlgo.searchPattern(part, inText: word),
-                positionPartContained = kmpAlgo.searchPattern(partContained, inText: word)
-                var partIsFirstOccurance = true
-                if positionPartContained.count > 0 && positionSubstring.count > 0 {
-                    partIsFirstOccurance = positionSubstring[0] < positionPartContained[0]
-                } else {
-                    partIsFirstOccurance = positionSubstring.count > 0
-                }
-                if positionSubstring.count > 0 &&
-                    (part.characters.count > partContained.characters.count ||
-                    (part.characters.count == partContained.characters.count && partIsFirstOccurance)) {
-                    partContained = part
-                }
-            }
-            var stringResult = word
-            if partContained.characters.count == 0 {
-                result.append(stringResult)
-                continue
-            }
-            stringResult.replaceSubrange(stringResult.range(of: partContained)!, with: "[\(partContained)]")
-            result.append(stringResult)
+        let ahoCorAlgo = AhoCorasickAlgorithm()
+        var res = [String]()
+        for i in 0..<words.count {
+            let text = words[i];
+            res.append(ahoCorAlgo.searchWords(parts, parts.count, text))
         }
-        return result
+        return res;
     }
 
 }
