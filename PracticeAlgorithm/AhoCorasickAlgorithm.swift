@@ -9,37 +9,25 @@
 import Foundation
 
 class AhoCorasickAlgorithm {
-    var out = [Int](repeating: 0, count: 500),
-    f = [Int](repeating: 0, count: 500),
-    g = [[Int]](repeating: [Int](repeating:  -1, count: 52), count: 500),
+    static var numberOfEle = 500
+    var out = [Int](repeating: 0, count: numberOfEle),
+    f = [Int](repeating: -1, count: numberOfEle),
+    g = [[Int]](repeating: [Int](repeating:  -1, count: 52), count: numberOfEle),
     alphabetIndex: [String: Int] = ["a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8, "j": 9, "k": 10, "l": 11, "m": 12, "n": 13, "o": 14, "p": 15, "q": 16, "r": 17, "s": 18, "t": 19, "u": 20, "v": 21, "w": 22, "x": 23, "y": 24, "z": 25, "A": 26, "B": 27, "C": 28, "D": 29, "E": 30, "F": 31, "G": 32, "H": 33, "I": 34, "J": 35, "K": 36, "L": 37, "M": 38, "N": 39, "O": 40, "P": 41, "Q": 42, "R": 43, "S": 44, "T": 45, "U":46, "V": 47, "W": 48, "X": 49, "Y": 50, "Z": 51]
     
-//    func search(patterns: [String], inText text: String) -> [Int] {
-//        let result = [Int]()
-//
-//        let trie = Trie()
-//        for pat in patterns {
-//            trie.insert(word: pat)
-//        }
-//
-//
-//
-//        return result
-//    }
-    
-    internal func buildMatchingMachine(_ arr: [String], _ k: Int) -> Int {
+    internal func buildMatchingMachine(_ arr: [String]) -> Int {
         // Initially, we just have the 0 state
         var states = 1
         
         // Construct values for goto function, i.e., fill g[][]
         // This is same as building a Trie for arr[]
-        for i in 0..<k {
+        for i in 0..<arr.count {
             let word = arr[i]
             var currentState = 0
             
             // Insert all characters of current word in arr[]
             for j in 0..<word.characters.count {
-                let ch = alphabetIndex[String(word[j])]! - alphabetIndex["a"]!
+                let ch = alphabetIndex[String(word[j])]!
                 
                 // Allocate a new node (create a new state) if a
                 // node for ch doesn't exist.
@@ -48,9 +36,9 @@ class AhoCorasickAlgorithm {
                     states += 1
                 }
                 // Add current word in output function
-                currentState = g[currentState][ch];
+                currentState = g[currentState][ch]
             }
-            out[currentState] = i
+            out[currentState] |= (1 << i)
         }
         
         // For all characters which don't have an edge from
@@ -83,7 +71,7 @@ class AhoCorasickAlgorithm {
         while (q.count > 0)
         {
             // Remove the front state from queue
-            let state = q[0]
+            let state = q.first!
             q.removeFirst()
             
             // For the removed state, find failure function for
@@ -126,7 +114,7 @@ class AhoCorasickAlgorithm {
     // nextInput - The next character that enters into the machine.
     internal func findNextState(_ currentState: Int, _ nextInput: Character) -> Int {
         var answer = currentState
-        let ch = alphabetIndex[String(nextInput)]! - alphabetIndex["a"]!
+        let ch = alphabetIndex[String(nextInput)]!
         
         // If goto is not defined, use failure function
         while (g[answer][ch] == -1) {
@@ -138,10 +126,10 @@ class AhoCorasickAlgorithm {
     
     // This function finds all occurrences of all array words
     // in text.
-    func searchWords(_ arr: [String], _ k: Int, _ text: String) -> String {
+    func searchWords(_ arr: [String], _ text: String) -> String {
         // Preprocess patterns.
         // Build machine with goto, failure and output functions
-        _ = buildMatchingMachine(arr, k);
+        _ = buildMatchingMachine(arr);
     
         // Initialize current state
         var currentState = 0
@@ -158,15 +146,18 @@ class AhoCorasickAlgorithm {
             
             // Match found, print all matching words of arr[]
             // using output function.
-            for j in 0..<k {
-                if (out[currentState] & (1<<j)) == (1<<j) &&
-                        (arr[j].characters.count > longestPart.characters.count ||
-                        (arr[j].characters.count == longestPart.characters.count &&
-                            i - arr[j].characters.count + 1 < minPos))
+            for j in 0..<arr.count {
+                if (out[currentState] & (1<<j)) > 0
+//                    &&
+//                    (arr[j].characters.count > longestPart.characters.count ||
+//                    (arr[j].characters.count == longestPart.characters.count &&
+//                            i - arr[j].characters.count + 1 < minPos))
                 {
-                    minPos = i - arr[j].characters.count + 1;
-                    endPos = i;
-                    longestPart = arr[j];
+//                    minPos = i - arr[j].characters.count + 1;
+//                    endPos = i;
+//                    longestPart = arr[j];
+                    
+                    print("**** string: \(arr[j]) appear in \(text)")
                 }
             }
         }

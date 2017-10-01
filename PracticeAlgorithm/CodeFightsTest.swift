@@ -640,11 +640,15 @@ class CodeFightsTest {
     // ==========================================
     
     func findSubstrings(words: [String], parts: [String]) -> [String] {
+        var res = [String](), sumOfPartLength = 0
+        for part in parts {
+            sumOfPartLength += part.characters.count
+        }
+        AhoCorasickAlgorithm.numberOfEle = sumOfPartLength
         let ahoCorAlgo = AhoCorasickAlgorithm()
-        var res = [String]()
         for i in 0..<words.count {
             let text = words[i];
-            res.append(ahoCorAlgo.searchWords(parts, parts.count, text))
+            res.append(ahoCorAlgo.searchWords(parts, text))
         }
         return res;
     }
