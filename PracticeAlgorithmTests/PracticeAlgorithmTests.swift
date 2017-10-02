@@ -624,4 +624,19 @@ class PracticeAlgorithmTests: XCTestCase {
                                                "incPb",
                                                "Ucy"]))
     }
+    
+    func testBST() {
+        let tree = BinarySearchTree<Int>(array: [4, 8, -4, 5, 12, 7, 8])
+        print(tree)
+        print(tree.search(value: 8) as Any)
+        print(tree.search(value: 11) as Any)
+        
+        tree.traverseInOrder { value in print(value) }
+        print(tree.toArray())
+        print(tree.height())
+        
+        if let node12 = tree.search(value: 12) {
+            print(node12.depth())   // returns 2
+        }
+    }
 }
