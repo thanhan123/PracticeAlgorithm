@@ -196,6 +196,39 @@ class BinarySearchTree<T: Comparable> {
         }
         return edges
     }
+    
+    public func predecessor() -> BinarySearchTree<T>? {
+        if let left = left {
+            return left.maximum()
+        } else {
+            var node = self
+            while let parent = node.parent {
+                if parent.value < value { return parent }
+                node = parent
+            }
+            return nil
+        }
+    }
+    
+    public func sucessor() -> BinarySearchTree<T>? {
+        if let right = right {
+            return right.minimum()
+        } else {
+            var node = self
+            while let parent = node.parent {
+                if parent.value > value { return parent }
+                node = parent
+            }
+            return nil
+        }
+    }
+    
+    public func isBST(minValue: T, maxValue: T) -> Bool {
+        if value < minValue || value > maxValue { return false }
+        let leftBST = left?.isBST(minValue: minValue, maxValue: value) ?? true
+        let rightBST = right?.isBST(minValue: value, maxValue: maxValue) ?? true
+        return leftBST && rightBST
+    }
 }
 
 extension BinarySearchTree: CustomStringConvertible {
@@ -209,5 +242,77 @@ extension BinarySearchTree: CustomStringConvertible {
             s += " -> (\(right.description))"
         }
         return s
+    }
+}
+
+public enum BinarySearchTreeEnum<T: Comparable> {
+    case Empty
+    case Leaf(T)
+    indirect case Node(BinarySearchTreeEnum, T, BinarySearchTreeEnum)
+    
+    public var count: Int {
+        switch self {
+        case .Empty: return 0
+        case .Leaf: return 1
+        case let .Node(left, _, right): return left.count + right.count
+        }
+    }
+    
+    public var height: Int {
+        switch self {
+        case .Empty: return 0
+        case .Leaf: return 1
+        case let .Node(left, _, right): return 1 + max(left.height, right.height)
+        }
+    }
+    
+    public func insert(newValue: T) -> BinarySearchTreeEnum {
+        switch self {
+        case .Empty:
+            return .Leaf(newValue)
+        case .Leaf(let value):
+            if newValue < value {
+                return .Node(.Leaf(newValue), value, .Empty)
+            } else {
+                return .Node(.Empty, value, .Leaf(newValue))
+            }
+        case .Node(let left, let value, let right):
+            if newValue < value {
+                return .Node(.Leaf(newValue), value, right)
+            } else {
+                return .Node(left, value, .Leaf(newValue))
+            }
+        }
+    }
+    
+    public func search(x: T) -> BinarySearchTreeEnum? {
+        switch self {
+        case .Empty:
+            return nil
+        case .Leaf(let y):
+            return (x == y) ? self : nil
+        case let .Node(left, y, right):
+            if x < y {
+                return left.search(x: x)
+            } else if x > y {
+                return right.search(x: x)
+            } else {
+                return self
+            }
+        
+        }
+    }
+}
+
+extension BinarySearchTreeEnum: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch self {
+        case .Empty:
+            return "."
+        case let .Leaf(value):
+            return "\(value)"
+        case let .Node(left, value, right):
+            return "(\(left.debugDescription) <- \(value) -> \(right.debugDescription))"
+        }
     }
 }
