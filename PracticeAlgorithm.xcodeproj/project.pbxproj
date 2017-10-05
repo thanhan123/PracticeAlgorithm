@@ -63,8 +63,8 @@
 		D16788F41F21BB5A002EA2BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D16788F61F21BB5A002EA2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D16788FD1F21BC74002EA2BF /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
-		D16788FE1F21BC74002EA2BF /* Swift-ARC.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Swift-ARC.playground"; sourceTree = "<group>"; };
-		D16788FF1F21BC74002EA2BF /* Swift-Protocol.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Swift-Protocol.playground"; sourceTree = "<group>"; };
+		D16788FE1F21BC74002EA2BF /* Swift-ARC.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Swift-ARC.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D16788FF1F21BC74002EA2BF /* Swift-Protocol.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Swift-Protocol.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D16789051F21BCCD002EA2BF /* PracticeAlgorithmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeAlgorithmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16789071F21BCCD002EA2BF /* PracticeAlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeAlgorithmTests.swift; sourceTree = "<group>"; };
 		D16789091F21BCCD002EA2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 		D19C543E1F24869F00100414 /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		D19C54401F248C8F00100414 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		D1A3399E1F26055D001926F9 /* GetKSmallestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKSmallestElement.swift; sourceTree = "<group>"; };
+		D1A99A341F86145E001988A2 /* CodingChallanges.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CodingChallanges.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D1B62BEB1F5275AE00309696 /* CountingSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingSort.swift; sourceTree = "<group>"; };
 		D1B62BEF1F527DEB00309696 /* ManacherAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManacherAlgorithm.swift; sourceTree = "<group>"; };
 		D1C4B8111F63CDA8003AD5F1 /* FindDuplicateElementInArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDuplicateElementInArray.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 				D16788F31F21BB5A002EA2BF /* LaunchScreen.storyboard */,
 				D16788FE1F21BC74002EA2BF /* Swift-ARC.playground */,
 				D16788FF1F21BC74002EA2BF /* Swift-Protocol.playground */,
+				D1A99A341F86145E001988A2 /* CodingChallanges.playground */,
 				D16788FD1F21BC74002EA2BF /* QuickSort.swift */,
 				D16789111F21D7DD002EA2BF /* HeapSort.swift */,
 				D19C54401F248C8F00100414 /* MergeSort.swift */,
@@ -157,8 +159,8 @@
 				D13101DF1F64DA060045C01A /* CodilityTest.swift */,
 				D18978911F694A2200C0FD34 /* CodeFightsTest.swift */,
 				D150A5671F6FA4E10047BA62 /* HackerRankTest.swift */,
-				D16788F61F21BB5A002EA2BF /* Info.plist */,
 				D167F4761F80A31200D55684 /* BinarySearchTree.swift */,
+				D16788F61F21BB5A002EA2BF /* Info.plist */,
 			);
 			path = PracticeAlgorithm;
 			sourceTree = "<group>";
