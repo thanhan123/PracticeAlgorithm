@@ -29,13 +29,11 @@ isStringPalindrome(input: "Hello, world")
 func doTwoStringContainSameCharacters(input: String, input2: String) -> Bool {
 //    let characterOnly = input.replacingOccurrences(of: " ", with: ""),
 //    characterOnly2 = input2.replacingOccurrences(of: " ", with: "")
-//
 //    return Set(characterOnly.characters) == Set(characterOnly2.characters) && characterOnly.characters.count == characterOnly2.characters.count
     
     let array = Array(input.characters),
     array2 = Array(input2.characters)
-    return array.count == array2.count &&
-        array.sorted() == array2.sorted()
+    return array.sorted() == array2.sorted()
 }
 
 doTwoStringContainSameCharacters(input: "abca", input2: "abca")
@@ -172,3 +170,25 @@ func getNumberOfVowelsAndConsonants(of string: String) -> (vowels: Int, consonan
 
 getNumberOfVowelsAndConsonants(of: "Swift Coding Challenges")
 getNumberOfVowelsAndConsonants(of: "Mississippi")
+
+// 11 - Three different letters
+func hasAtmostThreeDifferentLetters(s: String, s2: String) -> Bool{
+    let array = Array(s), array2 = Array(s2)
+    if array.count != array2.count { return false }
+    var result = 0
+    for i in 0..<array.count {
+        if array[i] != array2[i] {
+            result += 1
+            if result > 3 { return false }
+        }
+    }
+    return true
+}
+
+hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Cramp")
+hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Crams")
+hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Grams")
+hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Grans")
+hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Clam")
+hasAtmostThreeDifferentLetters(s: "clamp", s2: "maple")
+
