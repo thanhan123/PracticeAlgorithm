@@ -192,3 +192,182 @@ hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Grans")
 hasAtmostThreeDifferentLetters(s: "Clamp", s2: "Clam")
 hasAtmostThreeDifferentLetters(s: "clamp", s2: "maple")
 
+// 12 - Find longest prefix
+func findLongestPrefix(of s: String) -> String {
+    let words = s.components(separatedBy: " ")
+    guard let first = words.first else { return "" }
+    var currPrefix = "", bestPrefix = ""
+    for letter in first.characters {
+        currPrefix.append(letter)
+        for word in words {
+            if !word.hasPrefix(currPrefix) {
+                return bestPrefix
+            }
+        }
+        bestPrefix = currPrefix
+    }
+    return bestPrefix
+}
+
+findLongestPrefix(of: "swift switch swill swim")
+findLongestPrefix(of: "flip flap flop")
+
+// 13 - Run-length encoding
+func getRunLengthEncoding(of s: String) -> String {
+//    var result = "", count = 1, arrayS = Array(s)
+//    for i in 0..<arrayS.count {
+//        if i == arrayS.count - 1 || arrayS[i] != arrayS[i + 1] {
+//            result.append("\(String(arrayS[i]) + String(count))")
+//            count = 1
+//        } else {
+//            count += 1
+//        }
+//    }
+//    return result
+    
+    var currLetter: Character?,
+    result = "",
+    letterCount = 0
+    for c in s {
+        if c == currLetter {
+            letterCount += 1
+        } else {
+            if let currL = currLetter {
+                result.append("\(currL)\(letterCount)")
+            }
+            letterCount = 1
+            currLetter = c
+        }
+    }
+    if let currL = currLetter {
+        result.append("\(currL)\(letterCount)")
+    }
+    return result
+}
+
+getRunLengthEncoding(of: "aabbcc")
+getRunLengthEncoding(of: "aaabaaabaaa")
+getRunLengthEncoding(of: "aaAAaa")
+getRunLengthEncoding(of: "swift switch swill swim")
+getRunLengthEncoding(of: "flip flap flop")
+
+// 14 - String permutations
+func getPermutations(of s: String, current: String = "") {
+    let length = s.characters.count,
+    strArray = Array(s)
+    
+    if length == 0 {
+        print(current)
+    } else {
+        for i in 0..<length {
+            let left = String(strArray[0..<i]),
+            right = String(strArray[i+1..<length])
+            getPermutations(of: left + right, current: current + String(strArray[i]))
+        }
+    }
+    
+}
+
+getPermutations(of: "a")
+//print("*******************")
+//getPermutations(of: "ab")
+//print("*******************")
+getPermutations(of: "abc")
+print("*******************")
+//getPermutations(of: "wombat")
+
+// 15 - Reverse the words
+func reverseWord(of s: String) -> String {
+    let arrayWord = s.components(separatedBy: " ")
+    
+//    var result = arrayWord.reduce("") {
+//        $0.appending(String($1.reversed()) + " ")
+//    }
+//    return String(result.dropLast())
+    
+    let reversedWord = arrayWord.map { String($0.reversed()) }
+    return reversedWord.joined(separator: " ")
+}
+
+reverseWord(of: "Swift Coding Challenges")
+reverseWord(of: "The quick brown fox")
+
+// Mark - Number
+
+// 16 - Fizz Buzz
+func printFizzBuzz() {
+//    for i in 1...100 {
+//        if i % 15 == 0 {
+//            print("Fizz Buzz")
+//        } else if i % 3 == 0 {
+//            print("Fizz")
+//        } else if i % 5 == 0 {
+//            print("Buzz")
+//        } else {
+//            print("\(i)")
+//        }
+//    }
+    (1...100).forEach { print($0 % 3 == 0 ? $0 % 5 == 0 ? "Fizz Buzz" : "Fizz" : $0 % 5 == 0 ? "Buzz" : "\($0)") }
+}
+
+printFizzBuzz()
+print("*******************")
+
+// 17 - Random number
+func getRandomNumber(from min: Int, to max: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(max - min + 1))) + min
+}
+
+getRandomNumber(from: 1, to: 5)
+getRandomNumber(from: 8, to: 10)
+getRandomNumber(from: 12, to: 12)
+getRandomNumber(from: 12, to: 18)
+
+// 18 - Recreate pow() function
+func myPow(n: Int, n2: Int) -> Int {
+    guard n > 0, n2 > 0 else { return 0 }
+    let numbers = [Int](repeating: n, count: n2)
+    return numbers.reduce(1, { $0*$1 })
+}
+
+myPow(n: 2, n2: 8)
+myPow(n: 4, n2: 3)
+
+// 19 - Swap 2 numbers without using temporary variable
+func swapTwoNumbers(n: inout Int, n2: inout Int) {
+//    n2 = n + n2
+//    n = n2 - n
+//    n2 = n2 - n
+    
+    (n, n2) = (n2, n)
+}
+
+var a = 3, b = 5
+print("\(a), \(b)")
+swapTwoNumbers(n: &a, n2: &b)
+print("\(a), \(b)")
+print("*******************")
+
+// 20 - Number is prime
+func isPrime(number: Int) -> Bool{
+    guard number > 1 else { return false }
+    if number == 2 { return true }
+    for i in 2...Int(sqrt(Double(number))) {
+        if number % i == 0 { return false }
+    }
+    return true
+}
+
+isPrime(number: 11)
+isPrime(number: 13)
+isPrime(number: 4)
+isPrime(number: 9)
+isPrime(number: 16777259)
+
+// 21 - Couting binary ones
+func getNextHighestAndLowestHaveSameNumberBits1(with number: Int) -> (highest: Int?, lowest: Int?){
+    let binaryString = String(number, radix: 2)
+    let numberOfOnes = binaryString.characters.reduce(0) { $1 == "1" ? $0 + 1 : $0 }
+    
+    return (0, 1)
+}
