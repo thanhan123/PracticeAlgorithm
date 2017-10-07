@@ -365,9 +365,139 @@ isPrime(number: 9)
 isPrime(number: 16777259)
 
 // 21 - Couting binary ones
-func getNextHighestAndLowestHaveSameNumberBits1(with number: Int) -> (highest: Int?, lowest: Int?){
-    let binaryString = String(number, radix: 2)
-    let numberOfOnes = binaryString.characters.reduce(0) { $1 == "1" ? $0 + 1 : $0 }
+func getNextHighestAndLowestHaveSameNumberBits1(with number: Int) -> (nextHighest: Int?, nextLowest: Int?){
+    func ones(of number: Int) -> Int {
+        let binaryString = String(number, radix: 2)
+        return binaryString.characters.reduce(0) { $1 == "1" ? $0 + 1 : $0 }
+    }
     
-    return (0, 1)
+    let targetOnes = ones(of: number)
+    var nextHighest: Int? = nil,
+    nextLowest: Int? = nil
+    for i in number + 1...Int.max {
+        if ones(of: i) == targetOnes {
+            nextHighest = i
+            break
+        }
+    }
+    for i in (0..<number).reversed() {
+        if ones(of: i) == targetOnes {
+            nextLowest = i
+            break
+        }
+    }
+    
+    return (nextHighest, nextLowest)
 }
+
+getNextHighestAndLowestHaveSameNumberBits1(with: 28)
+getNextHighestAndLowestHaveSameNumberBits1(with: 12)
+
+// 22 - Binary reversed
+func getBinaryReverse(of number: Int) -> Int {
+    let binary = String(number, radix: 2)
+    let paddingAmount = 8 - binary.characters.count
+    let paddingBinary = String(repeating: "0", count: paddingAmount) + binary
+    
+    return Int(String(paddingBinary.reversed()), radix: 2)!
+}
+
+getBinaryReverse(of: 32)
+getBinaryReverse(of: 41)
+
+// 23 - Integer diguised as string
+func isContainNumberOnly(of s: String) -> Bool {
+//    let nonNumberString = s.filter { Int("\($0)") == nil }
+//    return nonNumberString.characters.count == 0
+    
+//    return s.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    
+    return s.rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789").inverted ) == nil
+}
+
+isContainNumberOnly(of: "010101")
+isContainNumberOnly(of: "123456789")
+isContainNumberOnly(of: "922873692928302928163738")
+isContainNumberOnly(of: "1.01")
+
+// 24 - Add number inside a string
+func getSumOfNumber(inside s: String) -> Int {
+//    let regex = try! NSRegularExpression(pattern: "(\\d+)", options: [])
+//    let matches = regex.matches(in: s, options: [], range: NSRange(location: 0, length: s.utf16.count))
+//    let allNumbers = matches.flatMap { Int((s as NSString).substring(with: $0.range)) }
+//    return allNumbers.reduce(0, +)
+    
+    var currentNumberString = "", sum = 0
+    for c in s {
+        if Int("\(c)") != nil {
+            currentNumberString.append(c)
+        } else {
+            sum += Int(currentNumberString) ?? 0
+            currentNumberString = ""
+        }
+    }
+    sum += Int(currentNumberString) ?? 0
+    return sum
+}
+
+getSumOfNumber(inside: "a1b2c3")
+getSumOfNumber(inside: "a10b20c30")
+getSumOfNumber(inside: "h8rs")
+
+// 25 - Calculate a square root by hand
+func getSquareRoot(of number: Int) -> Int {
+//    return Int(pow(Double(number), 0.5))
+    
+    if number == 1 { return 1 }
+    var b = 1, e = number / 2 + 1
+    while b + 1 < e {
+        let mid = b - (b - e)/2,
+        squareNumber = mid*mid
+        if squareNumber > number {
+            e = mid
+        } else if squareNumber < number {
+            b = mid
+        } else {
+            return mid
+        }
+    }
+    return b
+}
+
+getSquareRoot(of: 9)
+getSquareRoot(of: 16777216)
+getSquareRoot(of: 16)
+getSquareRoot(of: 15)
+getSquareRoot(of: 4)
+getSquareRoot(of: 2)
+getSquareRoot(of: 1)
+
+// 26 - Subtract without subtract
+func subtract(_ n: Int, from n2: Int) -> Int {
+//    return n2 + -1 * n
+    
+    print(~n)
+    return n2 + (~n + 1)
+}
+
+subtract(5, from: 9)
+subtract(10, from: 30)
+subtract(0, from: 32)
+subtract(9, from: 9)
+subtract(9, from: 5)
+print("*******************")
+
+// 37 - Count the number
+extension Collection where Element == Int  {
+    func count(_ s: Character) -> Int {
+        return self.reduce(0, {
+            let sameDidgitString = String($1).characters.filter{ $0 == s }
+            return $0 + sameDidgitString.count
+        })
+    }
+}
+
+[5, 15, 515, 55].count("5")
+[5, 15, 515, 55].count("1")
+[5555].count("1")
+[5555].count("5")
