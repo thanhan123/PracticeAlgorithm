@@ -501,3 +501,146 @@ extension Collection where Element == Int  {
 [5, 15, 515, 55].count("1")
 [5555].count("1")
 [5555].count("5")
+
+// 38 - Find N smallest
+extension Collection where Element: Comparable {
+    func getNSmallest(_ n: Int) -> [Element] {
+        let result = self.sorted { $0 < $1 }
+        return Array(result.prefix(n))
+    }
+}
+
+[3, 2, 4, 1].getNSmallest(3)
+["q", "f", "k"].getNSmallest(3)
+[256, 16].getNSmallest(3)
+[String]().getNSmallest(3)
+
+// 39 - Sort a string array by length
+extension Collection where Element == String {
+    func sortByLength() -> [Element] {
+        return self.sorted { $0.characters.count > $1.characters.count }
+    }
+}
+
+["a", "abc", "ab"].sortByLength()
+["paul", "taylor", "adele"].sortByLength()
+[String]().sortByLength()
+
+// 40 - get missing numbers in array
+func getMissingNumbers(from array: [Int]) -> [Int] {
+    let set = Set(array), set2 = Set(1...100)
+    return Array(set.symmetricDifference(set2)).sorted()
+}
+
+var array = Array(1...100)
+array.remove(at: 25)
+array.remove(at: 20)
+array.remove(at: 6)
+array.remove(at: 77)
+
+getMissingNumbers(from: array)
+
+// 41 - Find the median
+extension Collection where Element == Int {
+    func findMedian() -> Double? {
+        if self.count == 0 { return nil }
+        let sorted = self.sorted(),
+        mid = sorted.count / 2
+        if sorted.count % 2 == 0 {
+            return Double((sorted[mid] + sorted[mid - 1])) / 2
+        } else {
+            return Double(sorted[mid])
+        }
+    }
+}
+
+[1, 2, 3].findMedian()
+[1, 2, 9].findMedian()
+[1, 3, 5, 7, 9].findMedian()
+[1, 2, 3, 4].findMedian()
+[1, 2, 3, 10, 9, 8].findMedian()
+[Int]().findMedian()
+
+// 42 - Reimplement index(of:)
+extension Collection where Element: Equatable{
+    func myIndex(of e: Element) -> Int? {
+        for (index, item) in self.enumerated() {
+            if item == e {
+                return index
+            }
+        }
+        return nil
+    }
+}
+
+[1, 2, 3].myIndex(of: 1)
+[1, 2, 3].myIndex(of: 3)
+[1, 2, 3].myIndex(of: 5)
+
+// 43 - Linked list
+class LinkedListNode<T> {
+    var value: T
+    var nextNode: LinkedListNode<T>?
+    
+    init(value: T) {
+        self.value = value
+    }
+}
+
+class LinkedList<T> {
+    var start: LinkedListNode<T>?
+    
+    func printLinkedList() {
+        var current = start
+        while let pointer = current {
+            print(pointer.value, terminator: " ")
+            current = pointer.nextNode
+        }
+    }
+}
+
+func createAlphabetLinkedList() ->LinkedList<Character> {
+    let linkedList = LinkedList<Character>()
+    var previousNode: LinkedListNode<Character>? = nil
+    "abcdefghijklmnopqrstuvwxyz".characters.forEach {
+        let pointer = LinkedListNode<Character>(value: $0)
+        if let predecessor = previousNode {
+            predecessor.nextNode = pointer
+        } else {
+            linkedList.start = pointer
+        }
+        previousNode = pointer
+    }
+    return linkedList
+}
+
+let alphabetLinkedList = createAlphabetLinkedList()
+alphabetLinkedList.printLinkedList()
+print("\n*******************")
+
+// 44 - Linked list mid-point
+extension LinkedList {
+    func getLinkedListMidPoint() -> T? {
+        var slower = self.start,
+        faster = self.start
+        while faster != nil && faster?.nextNode?.nextNode != nil {
+            faster = faster?.nextNode?.nextNode
+            slower = slower?.nextNode
+        }
+        return slower?.value
+    }
+}
+
+alphabetLinkedList.getLinkedListMidPoint()
+
+// 54 - Binary search tree
+class BinarySearchTree<T: Comparable>{
+    var value: T
+    var left: BinarySearchTree<T>?
+    var right: BinarySearchTree<T>?
+    
+    init(value: T) {
+        self.value = value
+    }
+}
+
