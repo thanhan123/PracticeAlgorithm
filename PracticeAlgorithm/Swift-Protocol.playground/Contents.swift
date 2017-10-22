@@ -429,6 +429,107 @@ let hamsters = [murrayTheHamster, morganTheHamster, mauriceTheHamster]
 print(hamsters.textualDescription)
 
 
+// *************** Generic protocol
+// Using Self
+//protocol MythicalType {
+//    func holdAMeetingWithTheClan(clan: [Self])
+//}
+//
+//final class Kraken: MythicalType {
+////    func holdAMeetingWithTheClan(clan: [Kraken]) {
+////
+////    }
+//}
+//
+//final class Elf: MythicalType {
+//    func holdAMeetingWithTheClan(clan: [Elf]) {
+//
+//    }
+//}
+//
+//extension MythicalType where Self: Kraken {
+//    func holdAMeetingWithTheClan(clan: [Kraken]) {
+//
+//    }
+//}
+
+// Using associatedType
+protocol MythicalType: class {
+    associatedtype FoodType
+    
+    var lastEatenFood: FoodType { get set }
+    
+    func prepareFood() -> [FoodType]
+    func devour(edible: FoodType)
+}
+
+//class Kraken: MythicalType {
+//    func prepareFood() -> [Human] {
+//        return village.inhabitants
+//    }
+//
+//    func devour(edible: Human) {
+//
+//    }
+//}
+//
+//class Elf: MythicalType {
+//    func prepareFood() -> [Vegetable] {
+//        return gatherCrops(nearbyFarm)
+//    }
+//
+//    func devour(edible: Vegetable) {
+//
+//    }
+//}
+
+private extension MythicalType {
+    func setLastEatenFood(food: FoodType) {
+        lastEatenFood = food
+    }
+    
+    func getLastEatenFood() -> FoodType {
+        return lastEatenFood
+    }
+}
+
+class Storybook<T: MythicalType> {}
+
+func writeBookAbout<T: MythicalType>(myth: T) {}
+
+class AnyMythicalType<T>: MythicalType {
+    private let _prepareFood: (() -> [T])
+    private let _devour: ((T) -> Void)
+    
+    var lastEatenFood: T {
+        get { return _getLastEatenFood() }
+        set { _setLastEatenFood(newValue) }
+    }
+    private let _getLastEatenFood: (() -> T)
+    private let _setLastEatenFood: ((T) -> Void)
+    
+    required init<U: MythicalType>(_ mythicalCreature: U) where U.FoodType == T {
+        _prepareFood = mythicalCreature.prepareFood
+        _devour = mythicalCreature.devour
+        _getLastEatenFood = mythicalCreature.getLastEatenFood
+        _setLastEatenFood = mythicalCreature.setLastEatenFood
+    }
+    
+    func prepareFood() -> [T] {
+        return _prepareFood()
+    }
+    
+    func devour(edible: T) {
+        _devour(edible)
+    }
+}
+
+//let kraken = Kraken()
+//
+//let mythicalCreature: AnyMythicalType<Human>
+//
+//mythicalCreature = AnyMythicalType(kraken)
+
 
 
 

@@ -638,5 +638,8 @@ class PracticeAlgorithmTests: XCTestCase {
         if let node12 = tree.search(value: 12) {
             print(node12.depth())   // returns 2
         }
+        
+        let tree2 = BinarySearchTree<Int>(array: [10, 5, 4, 3, 2, 1, 11, 12, 13, 14, 15])
+        print(tree2)
     }
 }

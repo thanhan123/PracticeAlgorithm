@@ -54,6 +54,7 @@
 		D13101DF1F64DA060045C01A /* CodilityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodilityTest.swift; sourceTree = "<group>"; };
 		D14209891F38680A0071C1DA /* KMPSearchSubStringAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPSearchSubStringAlgorithm.swift; sourceTree = "<group>"; };
 		D142098B1F3877CD0071C1DA /* RabinKarpAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RabinKarpAlgorithm.swift; sourceTree = "<group>"; };
+		D14DACD91F9C267400D93532 /* TSUD.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TSUD.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D150A5671F6FA4E10047BA62 /* HackerRankTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackerRankTest.swift; sourceTree = "<group>"; };
 		D16788E71F21BB5A002EA2BF /* PracticeAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16788EA1F21BB5A002EA2BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 				D16788EE1F21BB5A002EA2BF /* Main.storyboard */,
 				D16788F11F21BB5A002EA2BF /* Assets.xcassets */,
 				D16788F31F21BB5A002EA2BF /* LaunchScreen.storyboard */,
+				D14DACD91F9C267400D93532 /* TSUD.playground */,
 				D16788FE1F21BC74002EA2BF /* Swift-ARC.playground */,
 				D16788FF1F21BC74002EA2BF /* Swift-Protocol.playground */,
 				D1A99A341F86145E001988A2 /* CodingChallanges.playground */,

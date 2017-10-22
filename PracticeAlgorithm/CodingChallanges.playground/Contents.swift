@@ -634,13 +634,97 @@ extension LinkedList {
 alphabetLinkedList.getLinkedListMidPoint()
 
 // 54 - Binary search tree
-class BinarySearchTree<T: Comparable>{
+class Node<T>{
     var value: T
-    var left: BinarySearchTree<T>?
-    var right: BinarySearchTree<T>?
+    var left: Node<T>?
+    var right: Node<T>?
     
     init(value: T) {
         self.value = value
     }
 }
+
+class BinarySearchTree<T: Comparable> {
+    var root: Node<T>?
+    
+    init(_ array: [T]) {
+        for value in array {
+            insert(value: value)
+        }
+    }
+    
+    func insert(value: T) {
+        insert(value: value, to: &root)
+    }
+    
+    private func insert(value: T, to node: inout Node<T>?) {
+        if let node = node {
+            if value < node.value {
+                if node.left != nil {
+                    insert(value: value, to: &node.left)
+                } else {
+                    node.left = Node<T>(value: value)
+                }
+            } else {
+                if node.right != nil {
+                    insert(value: value, to: &node.right)
+                } else {
+                    node.right = Node<T>(value: value)
+                }
+            }
+        } else {
+            node = Node<T>(value: value)
+        }
+    }
+    
+    func isBalanced() -> Bool {
+        func minDepth(of node:Node<T>?) -> Int {
+            guard let node = node else {
+                return 0
+            }
+            let returnValue = 1 + min(minDepth(of: node.left),                  minDepth(of: node.right))
+            return returnValue
+        }
+        func maxDepth(of node:Node<T>?) -> Int {
+            guard let node = node else {
+                return 0
+            }
+            let returnValue = 1 + max(maxDepth(of: node.left),                  maxDepth(of: node.right))
+            return returnValue
+        }
+        guard let root = root else { return true }
+        let diff = maxDepth(of: root) - minDepth(of: root)
+        return diff <= 1
+    }
+}
+
+extension BinarySearchTree: CustomStringConvertible {
+    var description: String {
+        guard let first = root else {
+            return "(Empty)"
+        }
+        var queue = [Node<T>]()
+        queue.append(first)
+        var output = ""
+        while queue.count > 0 {
+            var nodesAtCurrentLevel = queue.count
+            while nodesAtCurrentLevel > 0 {
+                let node = queue.removeFirst()
+                output += "\(node.value) "
+                if node.left != nil { queue.append(node.left!)}
+                if node.right != nil { queue.append(node.right!)}
+                nodesAtCurrentLevel -= 1
+            }
+            output += "\n"
+        }
+        return output
+    }
+}
+
+let bnst = BinarySearchTree<Int>([10, 5, 4, 3, 2, 1, 11, 12, 13, 14, 15])
+print(bnst.description)
+bnst.isBalanced()
+
+//let bnst2 = BinarySearchTree<Int>([4, 8, -4, 5, 12, 7, 8])
+//print(bnst2.description)
 
