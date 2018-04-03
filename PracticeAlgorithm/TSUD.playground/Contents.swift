@@ -101,7 +101,19 @@ hasWidgets.value = true
 hasWidgets.stringKey
 hasWidgets.value
 
+struct Person: Codable {
+    var name: String
+    var quest: String
+    var age: Int
+}
 
+struct testPerson: TSUD {
+    static let defaultValue: Person? = nil
+}
 
+testPerson.value = Person(name: "An", quest: "Hello", age: 24)
+testPerson.value?.name
+testPerson.value?.name = "Van"
+testPerson.value?.name
 
 

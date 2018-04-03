@@ -49,7 +49,7 @@ class CodeFightsTest {
     func firstNotRepeatingCharacter(s: String) -> Character {
         var uniqueCharacterString = ""
         var repeatedCharacterString = ""
-        for c in s.characters {
+        for c in s {
             if !uniqueCharacterString.contains("\(c)") {
                 uniqueCharacterString = uniqueCharacterString.appending("\(c)")
             } else if !repeatedCharacterString.contains("\(c)"){
@@ -57,11 +57,11 @@ class CodeFightsTest {
             }
         }
         
-        for c in repeatedCharacterString.characters {
+        for c in repeatedCharacterString {
             uniqueCharacterString = uniqueCharacterString.replacingOccurrences(of: "\(c)", with: "")
         }
         
-        return uniqueCharacterString.characters.count > 0 ? uniqueCharacterString.characters.first! : "_"
+        return uniqueCharacterString.count > 0 ? uniqueCharacterString.first! : "_"
     }
     
     // ==========================================
@@ -77,7 +77,7 @@ class CodeFightsTest {
         
         for c in crypt {
             let encryptString = encrypt(s: c, solution: solutionDict)
-            if encryptString[encryptString.startIndex] == "0" && encryptString.characters.count > 1 {
+            if encryptString[encryptString.startIndex] == "0" && encryptString.count > 1 {
                 return false
             }
             encryptedArray.append(Int("\(encryptString)")!)
@@ -88,7 +88,7 @@ class CodeFightsTest {
     
     internal func encrypt(s: String, solution: [String: String]) -> String {
         var result = ""
-        for c in s.characters {
+        for c in s {
             result = result.appending(solution["\(c)"]!)
         }
         
@@ -642,7 +642,7 @@ class CodeFightsTest {
     func findSubstrings(words: [String], parts: [String]) -> [String] {
         var res = [String](), sumOfPartLength = 0
         for part in parts {
-            sumOfPartLength += part.characters.count
+            sumOfPartLength += part.count
         }
         AhoCorasickAlgorithm.numberOfEle = sumOfPartLength
         let ahoCorAlgo = AhoCorasickAlgorithm()
@@ -651,6 +651,40 @@ class CodeFightsTest {
             res.append(ahoCorAlgo.searchWords(parts, text))
         }
         return res;
+    }
+    
+    // ==========================================
+    func mapDecoding(message: String) -> Int {
+        if(message.count == 0) {
+            return 1
+        } else if message.count == 1 {
+            if message == "0" {
+                return 0
+            } else {
+                return 1
+            }
+        }
+        var messageArray = Array(message)
+        let n = messageArray.count
+        var dp = [Int](repeating: 0, count: n+1)
+        dp[0] = 1
+        dp[1] = messageArray[0] == "0" ? 0 : 1
+        let mod = 1000000007
+        print("==================")
+        for i in 2...n {
+            let sub1 = Int(String(messageArray[i-1])) ?? 0
+            let sub2 = Int(String(messageArray[i-2...i-1])) ?? 0
+            print("sub1: \(sub1) - sub2: \(sub2)")
+            if( sub1 != 0) {
+                dp[i] += dp[i-1] % mod
+            }
+            if(sub2>9 && sub2<27) {
+                dp[i] += dp[i-2] % mod;
+            }
+            print("dp: \(dp)")
+        }
+        dp.sort
+        return dp[n];
     }
 
 }

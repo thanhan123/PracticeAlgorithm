@@ -642,4 +642,13 @@ class PracticeAlgorithmTests: XCTestCase {
         let tree2 = BinarySearchTree<Int>(array: [10, 5, 4, 3, 2, 1, 11, 12, 13, 14, 15])
         print(tree2)
     }
+    
+    func testMapDecoding() {
+        var result = codeFight.mapDecoding(message: "123")
+        XCTAssert(result == 3)
+        result = codeFight.mapDecoding(message: "0")
+        XCTAssert(result == 0)
+        result = codeFight.mapDecoding(message: "023")
+        XCTAssert(result == 0)
+    }
 }
